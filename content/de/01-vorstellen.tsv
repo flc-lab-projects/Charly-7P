@@ -1,0 +1,41 @@
+# Eine Zeile pro Satz. Die Spalten sind durch einen TAB getrennt:
+# 1) Deutsch   2) Français   3) auch richtig (mit | trennen)   4) nur: karten / schreiben
+# Spalte 3 und 4 dürfen leer bleiben.
+Ich heisse …	Je m’appelle …	Ich heisse Lea
+Er heisst Jonas.	Il s’appelle Jonas.
+Sie heisst Lea.	Elle s’appelle Lea.
+Ich bin 11 (Jahre alt).	J’ai 11 ans.	Ich bin 11|Ich bin 11 Jahre alt|Ich bin elf|Ich bin elf Jahre alt
+Er / Sie ist 11.	Il / Elle a 11 ans.		karten
+Er ist 11.	Il a 11 ans.	Er ist elf|Er ist 11 Jahre alt	schreiben
+Sie ist 11.	Elle a 11 ans.	Sie ist elf|Sie ist 11 Jahre alt	schreiben
+Ich wohne in Bern.	J’habite à Berne.
+Er / Sie wohnt in Sitten.	Il / Elle habite à Sion.		karten
+Er wohnt in Sitten.	Il habite à Sion.		schreiben
+Sie wohnt in Sitten.	Elle habite à Sion.		schreiben
+Ich komme aus der Schweiz.	Je viens de Suisse.
+Er / Sie kommt aus Österreich.	Il / Elle vient d’Autriche.		karten
+Er kommt aus Österreich.	Il vient d’Autriche.		schreiben
+Ich spreche Deutsch.	Je parle allemand.
+Er / Sie spricht Französisch.	Il / Elle parle français.		karten
+Er spricht Französisch.	Il parle français.		schreiben
+Die Nummer ist 079 421 35.	Le numéro est le 079 421 35.	Die Telefonnummer ist 079 421 35
+Ich habe einen / keinen Bruder.	J’ai un frère. / Je n’ai pas de frère.		karten
+Ich habe einen Bruder.	J’ai un frère.		schreiben
+Ich habe keinen Bruder.	Je n’ai pas de frère.		schreiben
+Ich habe eine / keine Schwester.	J’ai une sœur. / Je n’ai pas de sœur.		karten
+Ich habe eine Schwester.	J’ai une sœur.		schreiben
+Ich habe keine Schwester.	Je n’ai pas de sœur.		schreiben
+Ich habe keine Geschwister.	Je n’ai pas de frères et sœurs.
+Ich habe eine / keine Katze.	J’ai un chat. / Je n’ai pas de chat.		karten
+Ich habe eine Katze.	J’ai un chat.		schreiben
+Ich habe keine Katze.	Je n’ai pas de chat.		schreiben
+Er / Sie hat einen / keinen Hund.	Il / Elle a un chien. / Il / Elle n’a pas de chien.		karten
+Er hat einen Hund.	Il a un chien.		schreiben
+Er hat keinen Hund.	Il n’a pas de chien.		schreiben
+Ich lese gern / nicht gern.	J’aime lire. / Je n’aime pas lire.		karten
+Ich lese gern.	J’aime lire.		schreiben
+Ich lese nicht gern.	Je n’aime pas lire.		schreiben
+Er / Sie schwimmt gern / nicht gern.	Il / Elle aime nager. / Il / Elle n’aime pas nager.		karten
+Er schwimmt gern.	Il aime nager.		schreiben
+Er schwimmt nicht gern.	Il n’aime pas nager.		schreiben
+Meine Lieblingsfarbe ist Grün.	Ma couleur préférée est le vert.

@@ -1,0 +1,15 @@
+{
+  "title": "Wortkiste",
+  "units": [
+    {
+      "id": "de-01",
+      "file": "de/01-vorstellen.tsv",
+      "language": "Deutsch",
+      "title": "Ich stelle mich vor",
+      "subtitle": "Das kenne ich schon",
+      "prompt": "Français",
+      "answer": "Deutsch",
+      "colour": "blue"
+    }
+  ]
+}
