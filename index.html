@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Deutsch">
+<meta name="theme-color" content="#E4E7E3">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>Das kenne ich schon</title>
+<style>
+  :root{
+    --paper:#E4E7E3;
+    --card:#FCFCFB;
+    --ink:#16232E;
+    --muted:#6B7A82;
+    --de:#1F4E79;
+    --fr:#1F5E45;
+    --good:#2C7A4B;
+    --goodbg:#EAF4ED;
+    --warn:#B5541F;
+    --edge:rgba(22,35,46,.12);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;background:var(--paper);}
+  body{
+    font-family:"Avenir Next","Avenir",-apple-system,system-ui,sans-serif;
+    color:var(--ink);
+    padding:max(14px,env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom));
+    -webkit-text-size-adjust:100%;
+  }
+  h1{font-size:20px;font-weight:600;letter-spacing:-.01em;margin:6px 2px 2px;}
+  .sub{font-size:12.5px;color:var(--muted);margin:0 2px 14px;}
+
+  /* section switch */
+  .tabs{display:flex;gap:4px;background:rgba(22,35,46,.07);padding:4px;border-radius:12px;margin-bottom:14px;}
+  .tab{
+    flex:1;border:0;background:none;font:inherit;font-size:14.5px;font-weight:500;
+    color:var(--muted);padding:9px 8px;border-radius:9px;cursor:pointer;
+  }
+  .tab[aria-selected="true"]{background:var(--card);color:var(--ink);font-weight:600;
+    box-shadow:0 1px 2px rgba(22,35,46,.10);}
+
+  .controls{display:flex;gap:8px;margin:0 0 14px;}
+  .swap{
+    flex:1;display:flex;align-items:center;justify-content:center;gap:9px;
+    border:1px solid var(--edge);background:var(--card);color:var(--ink);
+    font:inherit;font-size:14.5px;font-weight:500;border-radius:11px;padding:11px 12px;cursor:pointer;
+  }
+  .swap b{font-weight:600;}
+  .swap .from{color:var(--de);} .swap .to{color:var(--fr);}
+  .swap.rev .from{color:var(--fr);} .swap.rev .to{color:var(--de);}
+  .swap .arrow{color:var(--muted);font-weight:400;}
+  .ghost{
+    border:1px solid var(--edge);background:transparent;color:var(--muted);
+    font:inherit;font-size:14.5px;border-radius:11px;padding:11px 14px;cursor:pointer;
+  }
+  .ghost[disabled]{opacity:.35;}
+
+  /* flashcards */
+  .deck{display:grid;grid-template-columns:1fr;gap:9px;}
+  @media (min-width:560px){ .deck{grid-template-columns:1fr 1fr;} }
+  .card{position:relative;height:96px;border:0;padding:0;background:none;
+    perspective:900px;cursor:pointer;font:inherit;text-align:left;}
+  .face{position:absolute;inset:0;display:flex;align-items:center;padding:16px 18px;border-radius:13px;
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    transition:transform .42s cubic-bezier(.2,.7,.25,1);transform-style:preserve-3d;}
+  .front{background:var(--card);border:1px solid var(--edge);border-left:4px solid var(--de);}
+  .back{background:var(--fr);color:#fff;transform:rotateY(180deg);}
+  .card.flipped .front{transform:rotateY(-180deg);}
+  .card.flipped .back{transform:rotateY(0deg);}
+  body.rev .front{border-left-color:var(--fr);}
+  body.rev .back{background:var(--de);}
+  .phrase{font-size:17px;line-height:1.32;font-weight:500;letter-spacing:-.005em;max-width:34ch;}
+  .back .phrase{font-weight:400;}
+
+  /* typing drill */
+  .score{display:flex;align-items:center;gap:10px;margin:0 2px 12px;}
+  .bar{flex:1;height:6px;border-radius:3px;background:rgba(22,35,46,.12);overflow:hidden;}
+  .bar i{display:block;height:100%;width:0;background:var(--good);transition:width .3s ease;}
+  .score span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;}
+
+  .qs{display:grid;gap:10px;}
+  .q{background:var(--card);border:1px solid var(--edge);border-left:4px solid var(--fr);
+     border-radius:13px;padding:13px 15px 14px;}
+  .q.right{border-color:var(--good);border-left-color:var(--good);background:var(--goodbg);}
+  .q.wrong{border-color:var(--warn);border-left-color:var(--warn);}
+  .q .ask{font-size:16px;line-height:1.3;margin:0 0 9px;font-weight:500;}
+  .row{display:flex;align-items:center;gap:9px;}
+  .q input{
+    flex:1;min-width:0;font:inherit;font-size:16.5px;color:var(--ink);
+    background:transparent;border:0;border-bottom:1.5px solid var(--edge);
+    padding:6px 2px;border-radius:0;
+  }
+  .q input:focus{outline:none;border-bottom-color:var(--de);}
+  .q.right input{border-bottom-color:transparent;color:var(--good);font-weight:600;}
+  .mark{width:22px;text-align:center;font-size:17px;line-height:1;color:var(--good);
+        opacity:0;transition:opacity .2s ease;}
+  .q.right .mark{opacity:1;}
+  .q.wrong .mark{opacity:1;color:var(--warn);}
+  .peek{border:0;background:none;font:inherit;font-size:13px;color:var(--muted);
+        padding:8px 0 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+  .q.right .peek{display:none;}
+  .said{font-size:13.5px;color:var(--warn);margin:8px 0 0;display:none;}
+  .q.shown .said{display:block;}
+
+  :focus-visible{outline:2.5px solid var(--ink);outline-offset:3px;}
+  footer{margin:22px 2px 0;font-size:12.5px;color:var(--muted);line-height:1.5;}
+  [hidden]{display:none !important;}
+  @media (prefers-reduced-motion:reduce){ .face,.bar i{transition:none;} }
+</style>
+</head>
+<body>
+
+<h1>Das kenne ich schon</h1>
+<p class="sub">Ich kann mich und andere vorstellen.</p>
+
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" id="tabCards" aria-selected="true">Karten</button>
+  <button class="tab" role="tab" id="tabWrite" aria-selected="false">Schreiben</button>
+</div>
+
+<!-- flashcards -->
+<section id="secCards">
+  <div class="controls">
+    <button class="swap" id="swap">
+      <b class="from" id="fromLabel">Deutsch</b>
+      <span class="arrow">&#8594;</span>
+      <b class="to" id="toLabel">Fran&ccedil;ais</b>
+    </button>
+    <button class="ghost" id="hideAll" disabled>Alle zu</button>
+  </div>
+  <div class="deck" id="deck"></div>
+  <footer>Tippe auf eine Karte, um die &Uuml;bersetzung zu sehen.</footer>
+</section>
+
+<!-- typing -->
+<section id="secWrite" hidden>
+  <div class="score">
+    <div class="bar"><i id="barFill"></i></div>
+    <span id="scoreText">0 / 0 richtig</span>
+  </div>
+  <div class="controls">
+    <button class="ghost" id="resetWrite" style="flex:1">Von vorne anfangen</button>
+  </div>
+  <div class="qs" id="qs"></div>
+  <footer>Schreibe den Satz auf Deutsch. Gross- und Kleinschreibung und Punkt sind egal, &ouml;&nbsp;darf auch oe sein.</footer>
+</section>
+
+<script>
+const PAIRS = [{"de": "Ich heisse …", "fr": "Je m’appelle …"}, {"de": "Er heisst Jonas.", "fr": "Il s’appelle Jonas."}, {"de": "Sie heisst Lea.", "fr": "Elle s’appelle Lea."}, {"de": "Ich bin 11 (Jahre alt).", "fr": "J’ai 11 ans."}, {"de": "Er / Sie ist 11.", "fr": "Il / Elle a 11 ans."}, {"de": "Ich wohne in Bern.", "fr": "J’habite à Berne."}, {"de": "Er / Sie wohnt in Sitten.", "fr": "Il / Elle habite à Sion."}, {"de": "Ich komme aus der Schweiz.", "fr": "Je viens de Suisse."}, {"de": "Er / Sie kommt aus Österreich.", "fr": "Il / Elle vient d’Autriche."}, {"de": "Ich spreche Deutsch.", "fr": "Je parle allemand."}, {"de": "Er / Sie spricht Französisch.", "fr": "Il / Elle parle français."}, {"de": "Die Nummer ist 079 421 35.", "fr": "Le numéro est le 079 421 35."}, {"de": "Ich habe einen / keinen Bruder.", "fr": "J’ai un frère. / Je n’ai pas de frère."}, {"de": "Ich habe eine / keine Schwester.", "fr": "J’ai une sœur. / Je n’ai pas de sœur."}, {"de": "Ich habe keine Geschwister.", "fr": "Je n’ai pas de frères et sœurs."}, {"de": "Ich habe eine / keine Katze.", "fr": "J’ai un chat. / Je n’ai pas de chat."}, {"de": "Er / Sie hat einen / keinen Hund.", "fr": "Il / Elle a un chien. / Il / Elle n’a pas de chien."}, {"de": "Ich lese gern / nicht gern.", "fr": "J’aime lire. / Je n’aime pas lire."}, {"de": "Er / Sie schwimmt gern / nicht gern.", "fr": "Il / Elle aime nager. / Il / Elle n’aime pas nager."}, {"de": "Meine Lieblingsfarbe ist Grün.", "fr": "Ma couleur préférée est le vert."}];
+const DRILL = [{"fr": "Je m’appelle Lea.", "de": "Ich heisse Lea.", "ok": ["Ich heisse Lea."]}, {"fr": "Il s’appelle Jonas.", "de": "Er heisst Jonas.", "ok": ["Er heisst Jonas."]}, {"fr": "Elle s’appelle Lea.", "de": "Sie heisst Lea.", "ok": ["Sie heisst Lea."]}, {"fr": "J’ai 11 ans.", "de": "Ich bin 11 Jahre alt.", "ok": ["Ich bin 11 Jahre alt.", "Ich bin 11", "Ich bin elf", "Ich bin elf Jahre alt"]}, {"fr": "Il a 11 ans.", "de": "Er ist 11.", "ok": ["Er ist 11.", "Er ist elf", "Er ist 11 Jahre alt"]}, {"fr": "Elle a 11 ans.", "de": "Sie ist 11.", "ok": ["Sie ist 11.", "Sie ist elf", "Sie ist 11 Jahre alt"]}, {"fr": "J’habite à Berne.", "de": "Ich wohne in Bern.", "ok": ["Ich wohne in Bern."]}, {"fr": "Il habite à Sion.", "de": "Er wohnt in Sitten.", "ok": ["Er wohnt in Sitten."]}, {"fr": "Je viens de Suisse.", "de": "Ich komme aus der Schweiz.", "ok": ["Ich komme aus der Schweiz."]}, {"fr": "Il vient d’Autriche.", "de": "Er kommt aus Österreich.", "ok": ["Er kommt aus Österreich."]}, {"fr": "Je parle allemand.", "de": "Ich spreche Deutsch.", "ok": ["Ich spreche Deutsch."]}, {"fr": "Il parle français.", "de": "Er spricht Französisch.", "ok": ["Er spricht Französisch."]}, {"fr": "Le numéro est le 079 421 35.", "de": "Die Nummer ist 079 421 35.", "ok": ["Die Nummer ist 079 421 35.", "Die Telefonnummer ist 079 421 35"]}, {"fr": "J’ai un frère.", "de": "Ich habe einen Bruder.", "ok": ["Ich habe einen Bruder."]}, {"fr": "Je n’ai pas de frère.", "de": "Ich habe keinen Bruder.", "ok": ["Ich habe keinen Bruder."]}, {"fr": "J’ai une sœur.", "de": "Ich habe eine Schwester.", "ok": ["Ich habe eine Schwester."]}, {"fr": "Je n’ai pas de sœur.", "de": "Ich habe keine Schwester.", "ok": ["Ich habe keine Schwester."]}, {"fr": "Je n’ai pas de frères et sœurs.", "de": "Ich habe keine Geschwister.", "ok": ["Ich habe keine Geschwister."]}, {"fr": "J’ai un chat.", "de": "Ich habe eine Katze.", "ok": ["Ich habe eine Katze."]}, {"fr": "Je n’ai pas de chat.", "de": "Ich habe keine Katze.", "ok": ["Ich habe keine Katze."]}, {"fr": "Il a un chien.", "de": "Er hat einen Hund.", "ok": ["Er hat einen Hund."]}, {"fr": "Il n’a pas de chien.", "de": "Er hat keinen Hund.", "ok": ["Er hat keinen Hund."]}, {"fr": "J’aime lire.", "de": "Ich lese gern.", "ok": ["Ich lese gern."]}, {"fr": "Je n’aime pas lire.", "de": "Ich lese nicht gern.", "ok": ["Ich lese nicht gern."]}, {"fr": "Il aime nager.", "de": "Er schwimmt gern.", "ok": ["Er schwimmt gern."]}, {"fr": "Il n’aime pas nager.", "de": "Er schwimmt nicht gern.", "ok": ["Er schwimmt nicht gern."]}, {"fr": "Ma couleur préférée est le vert.", "de": "Meine Lieblingsfarbe ist Grün.", "ok": ["Meine Lieblingsfarbe ist Grün."]}];
+
+/* ---------- section switching ---------- */
+const tabCards = document.getElementById('tabCards');
+const tabWrite = document.getElementById('tabWrite');
+const secCards = document.getElementById('secCards');
+const secWrite = document.getElementById('secWrite');
+function show(which){
+  const w = which === 'write';
+  tabWrite.setAttribute('aria-selected', w);
+  tabCards.setAttribute('aria-selected', !w);
+  secWrite.hidden = !w;
+  secCards.hidden = w;
+  window.scrollTo(0,0);
+}
+tabCards.addEventListener('click', () => show('cards'));
+tabWrite.addEventListener('click', () => show('write'));
+
+/* ---------- flashcards ---------- */
+const deck = document.getElementById('deck');
+const swap = document.getElementById('swap');
+const hideAll = document.getElementById('hideAll');
+let reversed = false;
+
+PAIRS.forEach(p => {
+  const card = document.createElement('button');
+  card.className = 'card';
+  card.innerHTML = '<div class="face front"><div class="phrase"></div></div>' +
+                   '<div class="face back"><div class="phrase"></div></div>';
+  card.dataset.de = p.de; card.dataset.fr = p.fr;
+  card.addEventListener('click', () => { card.classList.toggle('flipped'); tally(); });
+  deck.appendChild(card);
+});
+function paint(){
+  document.body.classList.toggle('rev', reversed);
+  document.querySelectorAll('.card').forEach(c => {
+    c.querySelector('.front .phrase').textContent = reversed ? c.dataset.fr : c.dataset.de;
+    c.querySelector('.back .phrase').textContent  = reversed ? c.dataset.de : c.dataset.fr;
+  });
+  document.getElementById('fromLabel').textContent = reversed ? 'Fran\u00e7ais' : 'Deutsch';
+  document.getElementById('toLabel').textContent   = reversed ? 'Deutsch' : 'Fran\u00e7ais';
+  swap.classList.toggle('rev', reversed);
+}
+function tally(){
+  const open = document.querySelectorAll('.card.flipped').length;
+  hideAll.disabled = open === 0;
+  hideAll.textContent = open === 0 ? 'Alle zu' : 'Alle zu (' + open + ')';
+}
+swap.addEventListener('click', () => {
+  reversed = !reversed;
+  document.querySelectorAll('.card.flipped').forEach(c => c.classList.remove('flipped'));
+  paint(); tally();
+});
+hideAll.addEventListener('click', () => {
+  document.querySelectorAll('.card.flipped').forEach(c => c.classList.remove('flipped'));
+  tally();
+});
+paint(); tally();
+
+/* ---------- typing drill ---------- */
+function norm(s){
+  return s.toLowerCase()
+    .replace(/\u00e4/g,'a').replace(/\u00f6/g,'o').replace(/\u00fc/g,'u').replace(/\u00df/g,'ss')
+    .replace(/ae/g,'a').replace(/oe/g,'o').replace(/ue/g,'u')
+    .replace(/[^a-z0-9]+/g,' ')
+    .replace(/(\d) +(?=\d)/g,'$1')
+    .trim();
+}
+const qs = document.getElementById('qs');
+const barFill = document.getElementById('barFill');
+const scoreText = document.getElementById('scoreText');
+
+DRILL.forEach((item, i) => {
+  const targets = item.ok.map(norm);
+  const box = document.createElement('div');
+  box.className = 'q';
+  box.innerHTML =
+    '<p class="ask"></p>' +
+    '<div class="row">' +
+      '<input type="text" inputmode="text" autocomplete="off" autocorrect="off" ' +
+        'autocapitalize="sentences" spellcheck="false" enterkeyhint="next" ' +
+        'placeholder="auf Deutsch \u2026" aria-label="Antwort auf Deutsch">' +
+      '<span class="mark" aria-hidden="true"></span>' +
+    '</div>' +
+    '<button class="peek">Zeig mir</button>' +
+    '<p class="said"></p>';
+  box.querySelector('.ask').textContent = item.fr;
+  box.querySelector('.said').textContent = item.de;
+
+  const input = box.querySelector('input');
+  const mark = box.querySelector('.mark');
+
+  function check(live){
+    const val = norm(input.value);
+    if (!val){ box.classList.remove('right','wrong'); mark.textContent=''; score(); return; }
+    if (targets.includes(val)){
+      box.classList.add('right'); box.classList.remove('wrong');
+      mark.textContent = '\u2713';
+      input.value = item.de;                 // tidy up to the proper spelling
+      input.blur();
+      const next = qs.querySelectorAll('.q')[i+1];
+      if (next && !next.classList.contains('right')) next.querySelector('input').focus();
+    } else if (!live){
+      box.classList.add('wrong'); mark.textContent = '\u2715';
+    } else {
+      box.classList.remove('wrong'); mark.textContent = '';
+    }
+    score();
+  }
+
+  input.addEventListener('input', () => check(true));
+  input.addEventListener('blur', () => check(false));
+  input.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); check(false); } });
+  box.querySelector('.peek').addEventListener('click', () => {
+    box.classList.add('shown');
+    box.querySelector('.peek').textContent = 'Nochmal versuchen';
+    input.focus();
+  });
+  qs.appendChild(box);
+});
+
+function score(){
+  const right = qs.querySelectorAll('.q.right').length;
+  const total = DRILL.length;
+  scoreText.textContent = right + ' / ' + total + ' richtig';
+  barFill.style.width = (right / total * 100) + '%';
+}
+document.getElementById('resetWrite').addEventListener('click', () => {
+  qs.querySelectorAll('.q').forEach(b => {
+    b.classList.remove('right','wrong','shown');
+    b.querySelector('input').value = '';
+    b.querySelector('.mark').textContent = '';
+    b.querySelector('.peek').textContent = 'Zeig mir';
+  });
+  score(); window.scrollTo(0,0);
+});
+score();
+</script>
+</body>
+</html>
