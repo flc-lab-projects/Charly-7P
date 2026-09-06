@@ -5,288 +5,578 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Deutsch">
-<meta name="theme-color" content="#E4E7E3">
-<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAH0UlEQVR4nO2cu3LbRhhGFwDZWHLkN8hbWEXSWy7sGYlOYdJdUmYsKYWVdJmQTSap5aejCos0DZlUYqU0iU1BELzhsiBx+Xb3O61UsDizi38XOM63L38TxGKaDW80+fLTy+//etvyXNd1nehPjRp/FqmdZsPz7x/enBz/fd7yXFcIZ/WvlMNeIjOur9pSCiGks+aGcOv5XaRump7nTx46z46vr9qBlEJIZ0MNymEnzYbn//PQeX78/td2IKUjxLYZUkrKYR3z3aRzcvz+6nUQJJrhOA7lsIvIjOurdiCF48SYEQSB4ziTh38ph0WsrBltmbBmzILAdd0Pn0cvfv+Z04otNBueP3noPD9+f9UOpIxdM2ZB4LnucOL/0Pul/+mWK4cVhGtGZEbCmuG57nBy1+pe3viDJwffUA7zCdeMk2wzPk7uzroX/dHt0aPD6WxKOQxnbc1Ifs6Ym3HaPb8Z3R4dHE5nM8FzDrNpeiuzSZD0nDHzXHc4npsxODp4PDdDUA6DWc4m79oyzQxvOPZbvYu5GV9n0+ivlMNM1mYTkTKbeIOx3+pd9ke3Tw4Op7Pp6j9RDgNRm03mu0loxtHB4dfFbhLBcw7TWD3pSp1NvOHkbrGbHE63zBCUwzCaDde/f+icPFWbWs9TzBDcVkyi2fD8+/86J8fXV53kqXU2P+k67aatGXMohyGs3Zskno4vZpPuxc3odnVqjYVymEC0Zig8Z0RPoI+nK1NrLJRDexZrRvZzxmDst7rhbJJphqAcuqM8m7jDyd2r5Kk1Fk4rGqNuxvxGLbo32fynBLhy6MraO105b9QUoRxasmpG6mziDif+2daNmiKUQz9W389IfttvObX2QzOyn0A3oByaofy2nzcY+2e9y3540pXbDEE59CLP237+q97lTZ7ZZBvKoQ25ptazbnTSpTqbbEM59KDZcNXfA20tp9ZddpMIyqEB4en48/SpNbpRO+8r3JuoQDnQib6FD2eTlBu1yfxGbcfZZBuekEKz/vVi2mwyHPtniyfQQswQXDmQyfEEOvZbSzP23U0iKAco+WaTxS38zlNrLNxWEMl1o9Zavu033XlqjYUrBxxqN2qrs0nG2347QzmwWOt0Zc0mO9+oKUI5gFi7a000Y3FvUujUGgvlQGH1PCOjn7H8erGwqTUWygHB5nlG2tR61+pdzs0odjbZhnLUT763/XoX+9+oKcJRtmYW36gpmXG6MrVW8Nu4ctTJ2vcmGVOrv93PKBvKURtru0lmP6N7efNps59RNpSjHjafM1Jv1MJ+xqPiz0DToRw1sGGGyLpRy/UlUoHwgbRqwiK98o1a4Xet6lCOSlF/Q3j9Rq0GMwS3lSpRKdJHN2pnZd6oKUI5KkKlSL+4UYvMqG5qjYVyVIFikT5s+5V/o6YI5Sidzbp08o3aYOxHlYTazRCUo2xyFelfhfcmNUytsVCOEslfpB/k6meUDeUoi32K9CBQjlLYs0gPAuUonv2L9CBQjoIppEgPAuUokqKK9CDwbqUwCizSg0A5iqHYIj0I3FYKoPAiPQiUY1/KKNKDQDn2oqQiPQiUY3fKK9KDQDl2pNQiPQicVnah7CI9CFw5clNBkR4EypGPaor0IFCOHFRWpAeBcqhSZZEeBMqhRMVFehAoRzbVF+lBoBwZ1FKkB4FypFFXkR4EypFIjUV6EHhCGk+9RXoQuHLEUHuRHgTKsQlCkR4EbitrgBTpQeDKsQSnSA8C5QiBKtKDQDmEwCvSg0A5EIv0INguB2aRHgSr5YAt0oNg7yiLXKQHwdKVA7xID4KNcuAX6UGwTg4tivQg2CWHLkV6ECx6INWoSA+CLXLoVaQHwYptRbsiPQjmy6FjkR4Ew+XQtEgPgsly6FukB8FYObQu0oNgphy6F+lBMFAOA4r0IJgmhxlFehCMksOYIj0I5shhUpEeBEPkMKxID4IJdyvmFelB0F4OI4v0IOi9rZhapAdBYzkMLtKDoKscZhfpQdBSDuOL9CDoJ4cNRXoQNJtWLCnSg6DTymFPkR4EbeSwqkgPgh5y2FakB0EDOSws0oOALoedRXoQoOWwtkgPAq4cNhfpQQCVw/IiPQiIcrBIDwLcCSmL9DhgrRws0kMBJAeL9GigbCss0gMCsXKwSI9J/XKwSA9LzXKwSI9MnXKwSA9ObXKwSI9PPXKwSK8FNYyyLNLrQtUrB4v0GlGpHCzS60V1crBIrx0VycEivY5U8UDKIr2mlC4Hi/T6Uu62wiK91pQoB4v0ulOWHCzSG0ApcrBIbwbFy8EivTEULAeL9CZRpBws0htGYXKwSG8excjBIr2RFCAHi/Smsq8cLNIbzF53KyzSm83ucrBIbzw7biss0tvALnKwSG8JueVgkd4e8snBIr1V5JCDRXrbUJ1WWKS3EKWVg0V6O8mWg0V6a8mQg0V6m0mTg0V6y0mUg0V6Ei8Hi/RExMrBIj2ZsykHi/QkYk0OFunJKssTUhbpyQbhysEiPdnGFXm+RGKR3ioau/Yz+O64+bijyZf2s6cKbT8W6a3D/fHFd9fvst72442alThSSiGElGJLjJV3unqcWm3ElVJKkWgGi/Q24zrbewmL9EQIEXu3Esxnk/vPLNJbzqYcgZSu6364G53+8ZZnoJazJoeU0hHi4/3n13++649un/Cky27+BzmlHUaMl/sKAAAAAElFTkSuQmCC">
-<title>Das kenne ich schon</title>
+<meta name="apple-mobile-web-app-title" content="Wortkiste">
+<meta name="theme-color" content="#E9E5F7">
+<link rel="apple-touch-icon" href="icon.png">
+<title>Wortkiste</title>
 <style>
   :root{
-    --paper:#E4E7E3;
-    --card:#FCFCFB;
-    --ink:#16232E;
-    --muted:#6B7A82;
-    --de:#1F4E79;
-    --fr:#1F5E45;
-    --good:#2C7A4B;
-    --goodbg:#EAF4ED;
-    --warn:#B5541F;
-    --edge:rgba(22,35,46,.12);
+    --paper:#E9E5F7;
+    --ink:#241C3C;
+    --muted:#6E6690;
+    --white:#FFFDFA;
+    --star:#FFC531;
+    --good:#17A34A;
+    --goodbg:#E4F7EA;
+    --bad:#E5484D;
+    --accent:#3457D5;
+    --line:2.5px solid var(--ink);
   }
+  .c-blue  {--accent:#3457D5;}
+  .c-green {--accent:#12864F;}
+  .c-violet{--accent:#6D3FD1;}
+  .c-orange{--accent:#D2660F;}
+  .c-pink  {--accent:#C92E76;}
+  .c-teal  {--accent:#0E7C88;}
+
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{margin:0;background:var(--paper);}
   body{
-    font-family:"Avenir Next","Avenir",-apple-system,system-ui,sans-serif;
+    font-family:"Avenir Next","Avenir",system-ui,-apple-system,sans-serif;
     color:var(--ink);
-    padding:max(14px,env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom));
+    padding:max(12px,env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom));
     -webkit-text-size-adjust:100%;
   }
-  h1{font-size:20px;font-weight:600;letter-spacing:-.01em;margin:6px 2px 2px;}
-  .sub{font-size:12.5px;color:var(--muted);margin:0 2px 14px;}
+  .display{font-family:"Futura","Avenir Next Demi Bold","Avenir Next",system-ui,sans-serif;}
 
-  /* section switch */
-  .tabs{display:flex;gap:4px;background:rgba(22,35,46,.07);padding:4px;border-radius:12px;margin-bottom:14px;}
-  .tab{
-    flex:1;border:0;background:none;font:inherit;font-size:14.5px;font-weight:500;
-    color:var(--muted);padding:9px 8px;border-radius:9px;cursor:pointer;
-  }
-  .tab[aria-selected="true"]{background:var(--card);color:var(--ink);font-weight:600;
-    box-shadow:0 1px 2px rgba(22,35,46,.10);}
+  /* ---------- shared bits ---------- */
+  .press{transition:transform .06s ease, box-shadow .06s ease;}
+  .press:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink) !important;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+  [hidden]{display:none !important;}
+  button{font:inherit;color:inherit;cursor:pointer;}
 
-  .controls{display:flex;gap:8px;margin:0 0 14px;}
-  .swap{
-    flex:1;display:flex;align-items:center;justify-content:center;gap:9px;
-    border:1px solid var(--edge);background:var(--card);color:var(--ink);
-    font:inherit;font-size:14.5px;font-weight:500;border-radius:11px;padding:11px 12px;cursor:pointer;
+  /* ---------- home ---------- */
+  .crown{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 2px 18px;}
+  .crown h1{
+    font-size:31px;font-weight:700;letter-spacing:-.02em;margin:0;line-height:1;
+    text-transform:none;
   }
-  .swap b{font-weight:600;}
-  .swap .from{color:var(--de);} .swap .to{color:var(--fr);}
-  .swap.rev .from{color:var(--fr);} .swap.rev .to{color:var(--de);}
-  .swap .arrow{color:var(--muted);font-weight:400;}
-  .ghost{
-    border:1px solid var(--edge);background:transparent;color:var(--muted);
-    font:inherit;font-size:14.5px;border-radius:11px;padding:11px 14px;cursor:pointer;
+  .crown h1 em{font-style:normal;display:block;font-size:12.5px;letter-spacing:.02em;
+    font-weight:500;color:var(--muted);margin-top:5px;font-family:"Avenir Next",sans-serif;}
+  .starcount{
+    display:flex;align-items:center;gap:5px;background:var(--star);border:var(--line);
+    border-radius:999px;padding:6px 13px 6px 10px;box-shadow:3px 3px 0 var(--ink);
+    font-weight:700;font-size:15px;white-space:nowrap;
   }
-  .ghost[disabled]{opacity:.35;}
 
-  /* flashcards */
-  .deck{display:grid;grid-template-columns:1fr;gap:9px;}
-  @media (min-width:560px){ .deck{grid-template-columns:1fr 1fr;} }
-  .card{position:relative;height:96px;border:0;padding:0;background:none;
-    perspective:900px;cursor:pointer;font:inherit;text-align:left;}
-  .face{position:absolute;inset:0;display:flex;align-items:center;padding:16px 18px;border-radius:13px;
+  .chips{display:flex;gap:8px;margin:0 0 16px;flex-wrap:wrap;}
+  .chip{
+    border:var(--line);background:transparent;border-radius:999px;padding:7px 15px;
+    font-size:14px;font-weight:600;color:var(--muted);
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+
+  .units{list-style:none;padding:0;margin:0;display:grid;gap:13px;}
+  @media (min-width:620px){ .units{grid-template-columns:1fr 1fr;} }
+  .unit{
+    width:100%;display:flex;align-items:center;gap:13px;text-align:left;
+    background:var(--white);border:var(--line);border-radius:20px;
+    box-shadow:5px 5px 0 var(--accent);padding:15px 15px 15px 13px;
+  }
+  .num{
+    flex:none;width:44px;height:44px;border-radius:13px;background:var(--accent);color:#fff;
+    display:grid;place-items:center;font-size:19px;font-weight:700;border:var(--line);
+  }
+  .unit .txt{flex:1;min-width:0;}
+  .unit .txt b{display:block;font-size:17.5px;font-weight:600;letter-spacing:-.01em;}
+  .unit .txt small{display:block;font-size:13px;color:var(--muted);margin-top:3px;}
+  .ring{flex:none;position:relative;width:46px;height:46px;}
+  .ring svg{transform:rotate(-90deg);display:block;}
+  .ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;font-weight:700;}
+  .ring.done b{color:var(--good);font-size:17px;}
+
+  .note{
+    background:#FFF3D1;border:var(--line);border-radius:16px;padding:12px 14px;
+    font-size:13.5px;line-height:1.45;margin:0 0 16px;
+  }
+
+  /* ---------- unit screen ---------- */
+  .topbar{display:flex;align-items:center;gap:11px;margin:6px 0 14px;}
+  .back{
+    flex:none;width:42px;height:42px;border:var(--line);border-radius:13px;background:var(--white);
+    box-shadow:3px 3px 0 var(--ink);font-size:19px;line-height:1;display:grid;place-items:center;
+  }
+  .topbar h2{font-size:20px;font-weight:700;margin:0;letter-spacing:-.01em;line-height:1.15;}
+  .topbar h2 span{display:block;font-size:12.5px;font-weight:500;color:var(--muted);
+    margin-top:2px;font-family:"Avenir Next",sans-serif;}
+
+  .modes{display:flex;gap:9px;margin:0 0 15px;}
+  .mode{
+    flex:1;border:var(--line);border-radius:14px;background:var(--white);
+    padding:11px 8px;font-size:15.5px;font-weight:600;box-shadow:3px 3px 0 var(--ink);
+  }
+  .mode[aria-selected="true"]{background:var(--accent);color:#fff;}
+
+  .bar{display:flex;align-items:center;gap:10px;margin:0 2px 14px;}
+  .bar .track{flex:1;height:12px;border:var(--line);border-radius:999px;background:var(--white);
+    overflow:hidden;}
+  .bar .fill{display:block;height:100%;width:0;background:var(--good);transition:width .35s ease;}
+  .bar .count{font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .streak{
+    border:var(--line);border-radius:999px;background:var(--star);padding:4px 11px;
+    font-size:13.5px;font-weight:700;white-space:nowrap;
+  }
+
+  .tools{display:flex;gap:9px;margin:0 0 14px;}
+  .tool{
+    flex:1;border:var(--line);border-radius:13px;background:transparent;padding:10px;
+    font-size:14px;font-weight:600;color:var(--muted);
+  }
+
+  /* ---------- flashcards ---------- */
+  .deck{display:grid;gap:11px;}
+  @media (min-width:620px){ .deck{grid-template-columns:1fr 1fr;} }
+  .card{position:relative;height:104px;border:0;padding:0;background:none;perspective:1000px;
+    text-align:left;}
+  .face{
+    position:absolute;inset:0;display:flex;align-items:center;padding:16px 18px;
+    border:var(--line);border-radius:20px;
     backface-visibility:hidden;-webkit-backface-visibility:hidden;
-    transition:transform .42s cubic-bezier(.2,.7,.25,1);transform-style:preserve-3d;}
-  .front{background:var(--card);border:1px solid var(--edge);border-left:4px solid var(--de);}
-  .back{background:var(--fr);color:#fff;transform:rotateY(180deg);}
-  .card.flipped .front{transform:rotateY(-180deg);}
-  .card.flipped .back{transform:rotateY(0deg);}
-  body.rev .front{border-left-color:var(--fr);}
-  body.rev .back{background:var(--de);}
-  .phrase{font-size:17px;line-height:1.32;font-weight:500;letter-spacing:-.005em;max-width:34ch;}
-  .back .phrase{font-weight:400;}
-
-  /* typing drill */
-  .score{display:flex;align-items:center;gap:10px;margin:0 2px 12px;}
-  .bar{flex:1;height:6px;border-radius:3px;background:rgba(22,35,46,.12);overflow:hidden;}
-  .bar i{display:block;height:100%;width:0;background:var(--good);transition:width .3s ease;}
-  .score span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;}
-
-  .qs{display:grid;gap:10px;}
-  .q{background:var(--card);border:1px solid var(--edge);border-left:4px solid var(--fr);
-     border-radius:13px;padding:13px 15px 14px;}
-  .q.right{border-color:var(--good);border-left-color:var(--good);background:var(--goodbg);}
-  .q.wrong{border-color:var(--warn);border-left-color:var(--warn);}
-  .q .ask{font-size:16px;line-height:1.3;margin:0 0 9px;font-weight:500;}
-  .row{display:flex;align-items:center;gap:9px;}
-  .q input{
-    flex:1;min-width:0;font:inherit;font-size:16.5px;color:var(--ink);
-    background:transparent;border:0;border-bottom:1.5px solid var(--edge);
-    padding:6px 2px;border-radius:0;
+    transition:transform .45s cubic-bezier(.2,.75,.25,1);transform-style:preserve-3d;
   }
-  .q input:focus{outline:none;border-bottom-color:var(--de);}
-  .q.right input{border-bottom-color:transparent;color:var(--good);font-weight:600;}
-  .mark{width:22px;text-align:center;font-size:17px;line-height:1;color:var(--good);
-        opacity:0;transition:opacity .2s ease;}
-  .q.right .mark{opacity:1;}
-  .q.wrong .mark{opacity:1;color:var(--warn);}
-  .peek{border:0;background:none;font:inherit;font-size:13px;color:var(--muted);
-        padding:8px 0 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+  .face.a{background:var(--white);box-shadow:5px 5px 0 var(--accent);}
+  .face.b{background:var(--accent);color:#fff;transform:rotateY(180deg);box-shadow:5px 5px 0 var(--ink);}
+  .card.flipped .face.a{transform:rotateY(-180deg);}
+  .card.flipped .face.b{transform:rotateY(0deg);}
+  .face p{margin:0;font-size:17px;line-height:1.3;font-weight:600;letter-spacing:-.005em;}
+  .face.b p{font-weight:500;}
+  .face .tag{position:absolute;top:9px;right:14px;font-size:10.5px;font-weight:700;
+    letter-spacing:.03em;opacity:.5;}
+
+  /* ---------- typing ---------- */
+  .qs{display:grid;gap:12px;}
+  .q{background:var(--white);border:var(--line);border-radius:20px;padding:14px 16px 15px;
+     box-shadow:5px 5px 0 var(--accent);}
+  .q.right{background:var(--goodbg);box-shadow:5px 5px 0 var(--good);}
+  .q.wrong{box-shadow:5px 5px 0 var(--bad);}
+  .q .ask{margin:0 0 10px;font-size:16.5px;font-weight:600;line-height:1.3;}
+  .row{display:flex;align-items:center;gap:10px;}
+  .q input{
+    flex:1;min-width:0;font:inherit;font-size:17px;font-weight:600;color:var(--ink);
+    background:transparent;border:0;border-bottom:2.5px solid rgba(36,28,60,.18);
+    padding:7px 2px;border-radius:0;
+  }
+  .q input::placeholder{font-weight:500;color:var(--muted);opacity:.7;}
+  .q input:focus{outline:none;border-bottom-color:var(--accent);}
+  .q.right input{border-bottom-color:transparent;color:var(--good);}
+  .mark{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+    font-size:16px;font-weight:700;color:#fff;opacity:0;transform:scale(.5);
+    transition:opacity .18s ease, transform .18s cubic-bezier(.3,1.6,.5,1);}
+  .q.right .mark{opacity:1;transform:scale(1);background:var(--good);}
+  .q.wrong .mark{opacity:1;transform:scale(1);background:var(--bad);}
+  .peek{border:0;background:none;padding:9px 0 0;font-size:13.5px;font-weight:600;
+    color:var(--muted);text-decoration:underline;text-underline-offset:3px;}
   .q.right .peek{display:none;}
-  .said{font-size:13.5px;color:var(--warn);margin:8px 0 0;display:none;}
+  .said{margin:9px 0 0;font-size:14px;font-weight:600;color:var(--bad);display:none;}
   .q.shown .said{display:block;}
 
-  :focus-visible{outline:2.5px solid var(--ink);outline-offset:3px;}
-  footer{margin:22px 2px 0;font-size:12.5px;color:var(--muted);line-height:1.5;}
-  [hidden]{display:none !important;}
-  @media (prefers-reduced-motion:reduce){ .face,.bar i{transition:none;} }
+  /* ---------- celebration ---------- */
+  .party{
+    position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:24px;
+    background:rgba(36,28,60,.45);
+  }
+  .party .box{
+    background:var(--white);border:3px solid var(--ink);border-radius:26px;
+    box-shadow:8px 8px 0 var(--star);padding:26px 22px 22px;text-align:center;max-width:330px;
+    animation:pop .35s cubic-bezier(.3,1.5,.5,1);
+  }
+  @keyframes pop{from{transform:scale(.8) rotate(-3deg);opacity:0;}to{transform:none;opacity:1;}}
+  .party h3{font-size:26px;margin:10px 0 6px;font-weight:700;}
+  .party p{margin:0 0 18px;font-size:15px;color:var(--muted);line-height:1.4;}
+  .party .row2{display:flex;gap:10px;}
+  .party button{flex:1;border:var(--line);border-radius:14px;padding:12px;font-weight:700;
+    font-size:15px;box-shadow:3px 3px 0 var(--ink);background:var(--white);}
+  .party button.go{background:var(--star);}
+  .burst{font-size:40px;letter-spacing:4px;}
+
+  footer{margin:24px 2px 0;font-size:12.5px;color:var(--muted);line-height:1.5;}
+  @media (prefers-reduced-motion:reduce){
+    .face,.fill,.mark{transition:none;} .party .box{animation:none;} .press{transition:none;}
+  }
 </style>
 </head>
 <body>
 
-<h1>Das kenne ich schon</h1>
-<p class="sub">Ich kann mich und andere vorstellen.</p>
+<!-- Notfall-Inhalt: wird nur benutzt, wenn content/ nicht geladen werden kann -->
+<script id="fallback" type="application/json">
+{"title":"Wortkiste","offline":true,"units":[{"id":"demo","file":"","language":"Deutsch",
+"title":"Beispiel","subtitle":"Nur ein paar S\u00e4tze","prompt":"Fran\u00e7ais","answer":"Deutsch","colour":"blue",
+"rows":[["Ich heisse Lea.","Je m\u2019appelle Lea.","",""],["Er heisst Jonas.","Il s\u2019appelle Jonas.","",""],
+["Ich wohne in Bern.","J\u2019habite \u00e0 Berne.","",""],["Ich spreche Deutsch.","Je parle allemand.","",""],
+["Ich habe eine Katze.","J\u2019ai un chat.","",""],["Meine Lieblingsfarbe ist Gr\u00fcn.","Ma couleur pr\u00e9f\u00e9r\u00e9e est le vert.","",""]]}]}
+</script>
 
-<div class="tabs" role="tablist">
-  <button class="tab" role="tab" id="tabCards" aria-selected="true">Karten</button>
-  <button class="tab" role="tab" id="tabWrite" aria-selected="false">Schreiben</button>
+<!-- ============ HOME ============ -->
+<main id="home">
+  <div class="crown">
+    <h1 class="display">Wortkiste<em>Deutsch und Franz&ouml;sisch &uuml;ben</em></h1>
+    <div class="starcount"><span>&#9733;</span><span id="totalStars">0</span></div>
+  </div>
+  <p class="note" id="offlineNote" hidden></p>
+  <div class="chips" id="chips"></div>
+  <ul class="units" id="units"></ul>
+  <footer id="homeFoot">Tippe auf eine Lektion.</footer>
+</main>
+
+<!-- ============ UNIT ============ -->
+<main id="unit" hidden>
+  <div class="topbar">
+    <button class="back press" id="back" aria-label="Zur&uuml;ck zur Wortkiste">&#8592;</button>
+    <h2 class="display" id="unitTitle">&nbsp;<span id="unitSub"></span></h2>
+  </div>
+
+  <div class="modes" role="tablist">
+    <button class="mode press" role="tab" id="mCards" aria-selected="true">Karten</button>
+    <button class="mode press" role="tab" id="mWrite" aria-selected="false">Schreiben</button>
+  </div>
+
+  <!-- cards -->
+  <section id="secCards">
+    <div class="tools">
+      <button class="tool press" id="swap">Franz&ouml;sisch zuerst</button>
+      <button class="tool press" id="closeAll">Alle zu</button>
+    </div>
+    <div class="deck" id="deck"></div>
+    <footer>Tippe auf eine Karte, um die andere Sprache zu sehen.</footer>
+  </section>
+
+  <!-- typing -->
+  <section id="secWrite" hidden>
+    <div class="bar">
+      <div class="track"><i class="fill" id="fill"></i></div>
+      <span class="count" id="count">0/0</span>
+      <span class="streak" id="streak" hidden>&#128293; 0</span>
+    </div>
+    <div class="tools">
+      <button class="tool press" id="reset">Von vorne</button>
+    </div>
+    <div class="qs" id="qs"></div>
+    <footer>Gross- und Kleinschreibung, Punkt und Komma sind egal. &ouml; darf auch oe sein.</footer>
+  </section>
+</main>
+
+<!-- ============ CELEBRATION ============ -->
+<div class="party" id="party" hidden>
+  <div class="box">
+    <div class="burst">&#11088;&#127881;&#11088;</div>
+    <h3 class="display" id="partyTitle">Geschafft!</h3>
+    <p id="partyText"></p>
+    <div class="row2">
+      <button class="press" id="partyAgain">Nochmal</button>
+      <button class="press go" id="partyHome">Zur Wortkiste</button>
+    </div>
+  </div>
 </div>
 
-<!-- flashcards -->
-<section id="secCards">
-  <div class="controls">
-    <button class="swap" id="swap">
-      <b class="from" id="fromLabel">Deutsch</b>
-      <span class="arrow">&#8594;</span>
-      <b class="to" id="toLabel">Fran&ccedil;ais</b>
-    </button>
-    <button class="ghost" id="hideAll" disabled>Alle zu</button>
-  </div>
-  <div class="deck" id="deck"></div>
-  <footer>Tippe auf eine Karte, um die &Uuml;bersetzung zu sehen.</footer>
-</section>
-
-<!-- typing -->
-<section id="secWrite" hidden>
-  <div class="score">
-    <div class="bar"><i id="barFill"></i></div>
-    <span id="scoreText">0 / 0 richtig</span>
-  </div>
-  <div class="controls">
-    <button class="ghost" id="resetWrite" style="flex:1">Von vorne anfangen</button>
-  </div>
-  <div class="qs" id="qs"></div>
-  <footer>Schreibe den Satz auf Deutsch. Gross- und Kleinschreibung und Punkt sind egal, &ouml;&nbsp;darf auch oe sein.</footer>
-</section>
-
 <script>
-const PAIRS = [{"de": "Ich heisse …", "fr": "Je m’appelle …"}, {"de": "Er heisst Jonas.", "fr": "Il s’appelle Jonas."}, {"de": "Sie heisst Lea.", "fr": "Elle s’appelle Lea."}, {"de": "Ich bin 11 (Jahre alt).", "fr": "J’ai 11 ans."}, {"de": "Er / Sie ist 11.", "fr": "Il / Elle a 11 ans."}, {"de": "Ich wohne in Bern.", "fr": "J’habite à Berne."}, {"de": "Er / Sie wohnt in Sitten.", "fr": "Il / Elle habite à Sion."}, {"de": "Ich komme aus der Schweiz.", "fr": "Je viens de Suisse."}, {"de": "Er / Sie kommt aus Österreich.", "fr": "Il / Elle vient d’Autriche."}, {"de": "Ich spreche Deutsch.", "fr": "Je parle allemand."}, {"de": "Er / Sie spricht Französisch.", "fr": "Il / Elle parle français."}, {"de": "Die Nummer ist 079 421 35.", "fr": "Le numéro est le 079 421 35."}, {"de": "Ich habe einen / keinen Bruder.", "fr": "J’ai un frère. / Je n’ai pas de frère."}, {"de": "Ich habe eine / keine Schwester.", "fr": "J’ai une sœur. / Je n’ai pas de sœur."}, {"de": "Ich habe keine Geschwister.", "fr": "Je n’ai pas de frères et sœurs."}, {"de": "Ich habe eine / keine Katze.", "fr": "J’ai un chat. / Je n’ai pas de chat."}, {"de": "Er / Sie hat einen / keinen Hund.", "fr": "Il / Elle a un chien. / Il / Elle n’a pas de chien."}, {"de": "Ich lese gern / nicht gern.", "fr": "J’aime lire. / Je n’aime pas lire."}, {"de": "Er / Sie schwimmt gern / nicht gern.", "fr": "Il / Elle aime nager. / Il / Elle n’aime pas nager."}, {"de": "Meine Lieblingsfarbe ist Grün.", "fr": "Ma couleur préférée est le vert."}];
-const DRILL = [{"fr": "Je m’appelle Lea.", "de": "Ich heisse Lea.", "ok": ["Ich heisse Lea."]}, {"fr": "Il s’appelle Jonas.", "de": "Er heisst Jonas.", "ok": ["Er heisst Jonas."]}, {"fr": "Elle s’appelle Lea.", "de": "Sie heisst Lea.", "ok": ["Sie heisst Lea."]}, {"fr": "J’ai 11 ans.", "de": "Ich bin 11 Jahre alt.", "ok": ["Ich bin 11 Jahre alt.", "Ich bin 11", "Ich bin elf", "Ich bin elf Jahre alt"]}, {"fr": "Il a 11 ans.", "de": "Er ist 11.", "ok": ["Er ist 11.", "Er ist elf", "Er ist 11 Jahre alt"]}, {"fr": "Elle a 11 ans.", "de": "Sie ist 11.", "ok": ["Sie ist 11.", "Sie ist elf", "Sie ist 11 Jahre alt"]}, {"fr": "J’habite à Berne.", "de": "Ich wohne in Bern.", "ok": ["Ich wohne in Bern."]}, {"fr": "Il habite à Sion.", "de": "Er wohnt in Sitten.", "ok": ["Er wohnt in Sitten."]}, {"fr": "Je viens de Suisse.", "de": "Ich komme aus der Schweiz.", "ok": ["Ich komme aus der Schweiz."]}, {"fr": "Il vient d’Autriche.", "de": "Er kommt aus Österreich.", "ok": ["Er kommt aus Österreich."]}, {"fr": "Je parle allemand.", "de": "Ich spreche Deutsch.", "ok": ["Ich spreche Deutsch."]}, {"fr": "Il parle français.", "de": "Er spricht Französisch.", "ok": ["Er spricht Französisch."]}, {"fr": "Le numéro est le 079 421 35.", "de": "Die Nummer ist 079 421 35.", "ok": ["Die Nummer ist 079 421 35.", "Die Telefonnummer ist 079 421 35"]}, {"fr": "J’ai un frère.", "de": "Ich habe einen Bruder.", "ok": ["Ich habe einen Bruder."]}, {"fr": "Je n’ai pas de frère.", "de": "Ich habe keinen Bruder.", "ok": ["Ich habe keinen Bruder."]}, {"fr": "J’ai une sœur.", "de": "Ich habe eine Schwester.", "ok": ["Ich habe eine Schwester."]}, {"fr": "Je n’ai pas de sœur.", "de": "Ich habe keine Schwester.", "ok": ["Ich habe keine Schwester."]}, {"fr": "Je n’ai pas de frères et sœurs.", "de": "Ich habe keine Geschwister.", "ok": ["Ich habe keine Geschwister."]}, {"fr": "J’ai un chat.", "de": "Ich habe eine Katze.", "ok": ["Ich habe eine Katze."]}, {"fr": "Je n’ai pas de chat.", "de": "Ich habe keine Katze.", "ok": ["Ich habe keine Katze."]}, {"fr": "Il a un chien.", "de": "Er hat einen Hund.", "ok": ["Er hat einen Hund."]}, {"fr": "Il n’a pas de chien.", "de": "Er hat keinen Hund.", "ok": ["Er hat keinen Hund."]}, {"fr": "J’aime lire.", "de": "Ich lese gern.", "ok": ["Ich lese gern."]}, {"fr": "Je n’aime pas lire.", "de": "Ich lese nicht gern.", "ok": ["Ich lese nicht gern."]}, {"fr": "Il aime nager.", "de": "Er schwimmt gern.", "ok": ["Er schwimmt gern."]}, {"fr": "Il n’aime pas nager.", "de": "Er schwimmt nicht gern.", "ok": ["Er schwimmt nicht gern."]}, {"fr": "Ma couleur préférée est le vert.", "de": "Meine Lieblingsfarbe ist Grün.", "ok": ["Meine Lieblingsfarbe ist Grün."]}];
+"use strict";
 
-/* ---------- section switching ---------- */
-const tabCards = document.getElementById('tabCards');
-const tabWrite = document.getElementById('tabWrite');
-const secCards = document.getElementById('secCards');
-const secWrite = document.getElementById('secWrite');
-function show(which){
-  const w = which === 'write';
-  tabWrite.setAttribute('aria-selected', w);
-  tabCards.setAttribute('aria-selected', !w);
-  secWrite.hidden = !w;
-  secCards.hidden = w;
-  window.scrollTo(0,0);
+/* ---------------- storage (falls back to memory if blocked) ---------------- */
+const mem = {};
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch(e){ return mem[k] ?? null; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch(e){ mem[k] = v; } }
+};
+const solvedKey = id => "wortkiste:" + id;
+function loadSolved(id){
+  try { return new Set(JSON.parse(store.get(solvedKey(id)) || "[]")); }
+  catch(e){ return new Set(); }
 }
-tabCards.addEventListener('click', () => show('cards'));
-tabWrite.addEventListener('click', () => show('write'));
+function saveSolved(id, set){ store.set(solvedKey(id), JSON.stringify([...set])); }
 
-/* ---------- flashcards ---------- */
-const deck = document.getElementById('deck');
-const swap = document.getElementById('swap');
-const hideAll = document.getElementById('hideAll');
-let reversed = false;
-
-PAIRS.forEach(p => {
-  const card = document.createElement('button');
-  card.className = 'card';
-  card.innerHTML = '<div class="face front"><div class="phrase"></div></div>' +
-                   '<div class="face back"><div class="phrase"></div></div>';
-  card.dataset.de = p.de; card.dataset.fr = p.fr;
-  card.addEventListener('click', () => { card.classList.toggle('flipped'); tally(); });
-  deck.appendChild(card);
-});
-function paint(){
-  document.body.classList.toggle('rev', reversed);
-  document.querySelectorAll('.card').forEach(c => {
-    c.querySelector('.front .phrase').textContent = reversed ? c.dataset.fr : c.dataset.de;
-    c.querySelector('.back .phrase').textContent  = reversed ? c.dataset.de : c.dataset.fr;
-  });
-  document.getElementById('fromLabel').textContent = reversed ? 'Fran\u00e7ais' : 'Deutsch';
-  document.getElementById('toLabel').textContent   = reversed ? 'Deutsch' : 'Fran\u00e7ais';
-  swap.classList.toggle('rev', reversed);
-}
-function tally(){
-  const open = document.querySelectorAll('.card.flipped').length;
-  hideAll.disabled = open === 0;
-  hideAll.textContent = open === 0 ? 'Alle zu' : 'Alle zu (' + open + ')';
-}
-swap.addEventListener('click', () => {
-  reversed = !reversed;
-  document.querySelectorAll('.card.flipped').forEach(c => c.classList.remove('flipped'));
-  paint(); tally();
-});
-hideAll.addEventListener('click', () => {
-  document.querySelectorAll('.card.flipped').forEach(c => c.classList.remove('flipped'));
-  tally();
-});
-paint(); tally();
-
-/* ---------- typing drill ---------- */
+/* ---------------- answer matching ---------------- */
 function norm(s){
   return s.toLowerCase()
-    .replace(/\u00e4/g,'a').replace(/\u00f6/g,'o').replace(/\u00fc/g,'u').replace(/\u00df/g,'ss')
-    .replace(/ae/g,'a').replace(/oe/g,'o').replace(/ue/g,'u')
-    .replace(/[^a-z0-9]+/g,' ')
-    .replace(/(\d) +(?=\d)/g,'$1')
+    .replace(/\u00e4/g,"a").replace(/\u00f6/g,"o").replace(/\u00fc/g,"u").replace(/\u00df/g,"ss")
+    .replace(/ae/g,"a").replace(/oe/g,"o").replace(/ue/g,"u")
+    .replace(/[^a-z0-9]+/g," ")
+    .replace(/(\d) +(?=\d)/g,"$1")
     .trim();
 }
-const qs = document.getElementById('qs');
-const barFill = document.getElementById('barFill');
-const scoreText = document.getElementById('scoreText');
 
-DRILL.forEach((item, i) => {
-  const targets = item.ok.map(norm);
-  const box = document.createElement('div');
-  box.className = 'q';
-  box.innerHTML =
-    '<p class="ask"></p>' +
-    '<div class="row">' +
-      '<input type="text" inputmode="text" autocomplete="off" autocorrect="off" ' +
-        'autocapitalize="sentences" spellcheck="false" enterkeyhint="next" ' +
-        'placeholder="auf Deutsch \u2026" aria-label="Antwort auf Deutsch">' +
-      '<span class="mark" aria-hidden="true"></span>' +
-    '</div>' +
-    '<button class="peek">Zeig mir</button>' +
-    '<p class="said"></p>';
-  box.querySelector('.ask').textContent = item.fr;
-  box.querySelector('.said').textContent = item.de;
+/* ---------------- content loading ---------------- */
+function parseTSV(text){
+  return text.split(/\r?\n/)
+    .filter(l => l.trim() && !l.startsWith("#"))
+    .map(l => {
+      const c = l.split("\t");
+      return {
+        a: (c[0]||"").trim(),                                   // answer language (e.g. German)
+        b: (c[1]||"").trim(),                                   // prompt language (e.g. French)
+        also: (c[2]||"").split("|").map(s=>s.trim()).filter(Boolean),
+        only: (c[3]||"").trim().toLowerCase()
+      };
+    })
+    .filter(r => r.a && r.b);
+}
 
-  const input = box.querySelector('input');
-  const mark = box.querySelector('.mark');
+let UNITS = [], OFFLINE = false;
 
-  function check(live){
-    const val = norm(input.value);
-    if (!val){ box.classList.remove('right','wrong'); mark.textContent=''; score(); return; }
-    if (targets.includes(val)){
-      box.classList.add('right'); box.classList.remove('wrong');
-      mark.textContent = '\u2713';
-      input.value = item.de;                 // tidy up to the proper spelling
-      input.blur();
-      const next = qs.querySelectorAll('.q')[i+1];
-      if (next && !next.classList.contains('right')) next.querySelector('input').focus();
-    } else if (!live){
-      box.classList.add('wrong'); mark.textContent = '\u2715';
-    } else {
-      box.classList.remove('wrong'); mark.textContent = '';
-    }
-    score();
+async function loadContent(){
+  try {
+    const idx = await (await fetch("content/index.json", {cache:"no-cache"})).json();
+    const units = await Promise.all(idx.units.map(async u => {
+      const txt = await (await fetch("content/" + u.file, {cache:"no-cache"})).text();
+      return Object.assign({}, u, {rows: parseTSV(txt)});
+    }));
+    return units.filter(u => u.rows.length);
+  } catch (e) {
+    OFFLINE = true;
+    const fb = JSON.parse(document.getElementById("fallback").textContent);
+    return fb.units.map(u => Object.assign({}, u, {
+      rows: u.rows.map(r => ({a:r[0], b:r[1], also:[], only:""}))
+    }));
+  }
+}
+
+const cardRows  = u => u.rows.filter(r => r.only !== "schreiben");
+const writeRows = u => u.rows.filter(r => r.only !== "karten");
+
+/* ---------------- home screen ---------------- */
+const homeEl = document.getElementById("home");
+const unitEl = document.getElementById("unit");
+const unitsEl = document.getElementById("units");
+const chipsEl = document.getElementById("chips");
+let langFilter = null;
+
+function ring(done, total){
+  const r = 19, c = 2 * Math.PI * r, pct = total ? done/total : 0;
+  const cls = (done && done === total) ? "ring done" : "ring";
+  const label = (done && done === total) ? "&#10003;" : done + "/" + total;
+  return '<span class="' + cls + '">' +
+    '<svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">' +
+      '<circle cx="23" cy="23" r="' + r + '" fill="none" stroke="rgba(36,28,60,.15)" stroke-width="5"/>' +
+      '<circle cx="23" cy="23" r="' + r + '" fill="none" stroke="var(--good)" stroke-width="5" ' +
+        'stroke-linecap="round" stroke-dasharray="' + c + '" stroke-dashoffset="' + (c*(1-pct)) + '"/>' +
+    '</svg><b>' + label + '</b></span>';
+}
+
+function renderHome(){
+  const langs = [...new Set(UNITS.map(u => u.language))];
+  chipsEl.hidden = langs.length < 2;
+  chipsEl.innerHTML = "";
+  if (langs.length > 1){
+    langs.forEach(l => {
+      const b = document.createElement("button");
+      b.className = "chip press";
+      b.textContent = l;
+      b.setAttribute("aria-pressed", String(langFilter === l || langFilter === null));
+      b.addEventListener("click", () => {
+        langFilter = (langFilter === l) ? null : l;
+        renderHome();
+      });
+      chipsEl.appendChild(b);
+    });
   }
 
-  input.addEventListener('input', () => check(true));
-  input.addEventListener('blur', () => check(false));
-  input.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); check(false); } });
-  box.querySelector('.peek').addEventListener('click', () => {
-    box.classList.add('shown');
-    box.querySelector('.peek').textContent = 'Nochmal versuchen';
-    input.focus();
+  const list = UNITS.filter(u => !langFilter || u.language === langFilter);
+  let stars = 0;
+  unitsEl.innerHTML = "";
+  list.forEach((u, i) => {
+    const total = writeRows(u).length;
+    const done = [...loadSolved(u.id)].filter(k => writeRows(u).some(r => r.a === k)).length;
+    stars += done;
+    const li = document.createElement("li");
+    li.innerHTML =
+      '<button class="unit press c-' + (u.colour || "blue") + '">' +
+        '<span class="num display">' + String(i+1).padStart(2,"0") + '</span>' +
+        '<span class="txt"><b></b><small></small></span>' +
+        ring(done, total) +
+      '</button>';
+    li.querySelector("b").textContent = u.title;
+    li.querySelector("small").textContent = u.subtitle || u.language;
+    li.querySelector("button").addEventListener("click", () => openUnit(u));
+    unitsEl.appendChild(li);
   });
-  qs.appendChild(box);
+  document.getElementById("totalStars").textContent = stars;
+
+  const note = document.getElementById("offlineNote");
+  note.hidden = !OFFLINE;
+  if (OFFLINE){
+    note.textContent = "Die Lektionen aus dem Ordner content/ konnten nicht geladen werden \u2014 " +
+      "hier siehst du nur ein kurzes Beispiel. Auf einer richtigen Adresse (z.\u00a0B. GitHub Pages) " +
+      "l\u00e4dt alles normal.";
+  }
+}
+
+/* ---------------- unit screen ---------------- */
+let cur = null, solved = null, reversed = false, streak = 0;
+
+function openUnit(u){
+  cur = u; solved = loadSolved(u.id); reversed = false; streak = 0;
+  document.body.className = "c-" + (u.colour || "blue");
+  document.getElementById("unitTitle").childNodes[0].nodeValue = u.title;
+  document.getElementById("unitSub").textContent = u.answer + " \u2194 " + u.prompt;
+  buildCards(); buildWrite(); showMode("cards");
+  homeEl.hidden = true; unitEl.hidden = false;
+  window.scrollTo(0,0);
+}
+
+document.getElementById("back").addEventListener("click", () => {
+  unitEl.hidden = true; homeEl.hidden = false;
+  document.body.className = "";
+  renderHome(); window.scrollTo(0,0);
 });
 
-function score(){
-  const right = qs.querySelectorAll('.q.right').length;
-  const total = DRILL.length;
-  scoreText.textContent = right + ' / ' + total + ' richtig';
-  barFill.style.width = (right / total * 100) + '%';
+const mCards = document.getElementById("mCards"), mWrite = document.getElementById("mWrite");
+function showMode(m){
+  const w = m === "write";
+  mWrite.setAttribute("aria-selected", String(w));
+  mCards.setAttribute("aria-selected", String(!w));
+  document.getElementById("secWrite").hidden = !w;
+  document.getElementById("secCards").hidden = w;
+  window.scrollTo(0,0);
 }
-document.getElementById('resetWrite').addEventListener('click', () => {
-  qs.querySelectorAll('.q').forEach(b => {
-    b.classList.remove('right','wrong','shown');
-    b.querySelector('input').value = '';
-    b.querySelector('.mark').textContent = '';
-    b.querySelector('.peek').textContent = 'Zeig mir';
+mCards.addEventListener("click", () => showMode("cards"));
+mWrite.addEventListener("click", () => showMode("write"));
+
+/* cards */
+const deck = document.getElementById("deck");
+const swapBtn = document.getElementById("swap");
+function buildCards(){
+  deck.innerHTML = "";
+  cardRows(cur).forEach(r => {
+    const c = document.createElement("button");
+    c.className = "card";
+    c.innerHTML = '<span class="face a"><span class="tag"></span><p></p></span>' +
+                  '<span class="face b"><span class="tag"></span><p></p></span>';
+    c._row = r;
+    c.addEventListener("click", () => { c.classList.toggle("flipped"); countOpen(); });
+    deck.appendChild(c);
   });
-  score(); window.scrollTo(0,0);
+  paintCards();
+}
+function paintCards(){
+  deck.querySelectorAll(".card").forEach(c => {
+    const front = reversed ? c._row.b : c._row.a;
+    const back  = reversed ? c._row.a : c._row.b;
+    c.querySelector(".face.a p").textContent = front;
+    c.querySelector(".face.b p").textContent = back;
+    c.querySelector(".face.a .tag").textContent = reversed ? cur.prompt : cur.answer;
+    c.querySelector(".face.b .tag").textContent = reversed ? cur.answer : cur.prompt;
+  });
+  swapBtn.textContent = reversed ? (cur.answer + " zuerst") : (cur.prompt + " zuerst");
+}
+function countOpen(){
+  const n = deck.querySelectorAll(".card.flipped").length;
+  document.getElementById("closeAll").textContent = n ? "Alle zu (" + n + ")" : "Alle zu";
+}
+swapBtn.addEventListener("click", () => {
+  reversed = !reversed;
+  deck.querySelectorAll(".card.flipped").forEach(c => c.classList.remove("flipped"));
+  paintCards(); countOpen();
 });
-score();
+document.getElementById("closeAll").addEventListener("click", () => {
+  deck.querySelectorAll(".card.flipped").forEach(c => c.classList.remove("flipped"));
+  countOpen();
+});
+
+/* typing */
+const qs = document.getElementById("qs");
+const fill = document.getElementById("fill");
+const countEl = document.getElementById("count");
+const streakEl = document.getElementById("streak");
+
+function buildWrite(){
+  qs.innerHTML = "";
+  const rows = writeRows(cur);
+  rows.forEach((r, i) => {
+    const targets = [r.a, ...r.also].map(norm);
+    const box = document.createElement("div");
+    box.className = "q";
+    box.innerHTML =
+      '<p class="ask"></p>' +
+      '<div class="row">' +
+        '<input type="text" autocomplete="off" autocorrect="off" autocapitalize="sentences" ' +
+          'spellcheck="false" enterkeyhint="next">' +
+        '<span class="mark" aria-hidden="true"></span>' +
+      '</div>' +
+      '<button class="peek">Zeig mir</button>' +
+      '<p class="said"></p>';
+    box.querySelector(".ask").textContent = r.b;
+    box.querySelector(".said").textContent = r.a;
+    const input = box.querySelector("input");
+    const mark = box.querySelector(".mark");
+    input.placeholder = "auf " + cur.answer + " \u2026";
+    input.setAttribute("aria-label", "Antwort auf " + cur.answer);
+
+    if (solved.has(r.a)){ box.classList.add("right"); input.value = r.a; mark.textContent = "\u2713"; }
+
+    function check(live){
+      const v = norm(input.value);
+      if (!v){ box.classList.remove("right","wrong"); solved.delete(r.a); save(); return; }
+      if (targets.includes(v)){
+        if (!box.classList.contains("right")){
+          streak++; solved.add(r.a); bumpStreak();
+        }
+        box.classList.add("right"); box.classList.remove("wrong");
+        mark.textContent = "\u2713";
+        input.value = r.a;
+        input.blur();
+        save();
+        const next = qs.children[i+1];
+        if (next && !next.classList.contains("right")) next.querySelector("input").focus();
+      } else if (!live){
+        box.classList.add("wrong"); mark.textContent = "\u2715";
+        streak = 0; bumpStreak();
+      } else {
+        box.classList.remove("wrong");
+      }
+    }
+    input.addEventListener("input", () => check(true));
+    input.addEventListener("blur", () => check(false));
+    input.addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); check(false); } });
+    box.querySelector(".peek").addEventListener("click", () => {
+      box.classList.add("shown");
+      box.querySelector(".peek").textContent = "Nochmal versuchen";
+      streak = 0; bumpStreak();
+      input.focus();
+    });
+    qs.appendChild(box);
+  });
+  save(true);
+}
+
+function bumpStreak(){
+  streakEl.hidden = streak < 2;
+  streakEl.textContent = "\uD83D\uDD25 " + streak;
+}
+
+function save(quiet){
+  const rows = writeRows(cur);
+  const done = rows.filter(r => solved.has(r.a)).length;
+  saveSolved(cur.id, solved);
+  countEl.textContent = done + "/" + rows.length;
+  fill.style.width = (rows.length ? done/rows.length*100 : 0) + "%";
+  if (!quiet && done === rows.length && rows.length) celebrate(done);
+}
+
+document.getElementById("reset").addEventListener("click", () => {
+  solved = new Set(); streak = 0; bumpStreak();
+  saveSolved(cur.id, solved);
+  buildWrite(); window.scrollTo(0,0);
+});
+
+/* celebration */
+const party = document.getElementById("party");
+function celebrate(n){
+  document.getElementById("partyText").textContent =
+    "Alle " + n + " S\u00e4tze richtig geschrieben.";
+  party.hidden = false;
+}
+document.getElementById("partyAgain").addEventListener("click", () => {
+  party.hidden = true;
+  solved = new Set(); saveSolved(cur.id, solved); streak = 0; bumpStreak(); buildWrite();
+  window.scrollTo(0,0);
+});
+document.getElementById("partyHome").addEventListener("click", () => {
+  party.hidden = true;
+  document.getElementById("back").click();
+});
+
+/* ---------------- go ---------------- */
+loadContent().then(u => { UNITS = u; renderHome(); });
 </script>
 </body>
 </html>
