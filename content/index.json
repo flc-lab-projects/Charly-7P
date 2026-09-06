@@ -1,14 +1,15 @@
 {
-  "title": "Wortkiste",
+  "title": "Boîte à mots",
+  "tagline": "Pour réviser tes mots",
   "units": [
     {
       "id": "de-01",
       "file": "de/01-vorstellen.tsv",
-      "language": "Deutsch",
-      "title": "Ich stelle mich vor",
-      "subtitle": "Das kenne ich schon",
-      "prompt": "Français",
-      "answer": "Deutsch",
+      "language": "Allemand",
+      "title": "Je me présente",
+      "subtitle": "Unité 1 · Das kenne ich schon",
+      "prompt": "français",
+      "answer": "allemand",
       "colour": "blue"
     }
   ]

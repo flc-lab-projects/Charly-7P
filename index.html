@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Wortkiste">
+<meta name="apple-mobile-web-app-title" content="Mots">
 <meta name="theme-color" content="#E9E5F7">
 <link rel="apple-touch-icon" href="icon.png">
-<title>Wortkiste</title>
+<title>Boîte à mots</title>
 <style>
   :root{
     --paper:#E9E5F7;
@@ -198,10 +198,10 @@
 </head>
 <body>
 
-<!-- Notfall-Inhalt: wird nur benutzt, wenn content/ nicht geladen werden kann -->
+<!-- Contenu de secours : utilisé uniquement si le dossier content/ ne peut pas être chargé -->
 <script id="fallback" type="application/json">
-{"title":"Wortkiste","offline":true,"units":[{"id":"demo","file":"","language":"Deutsch",
-"title":"Beispiel","subtitle":"Nur ein paar S\u00e4tze","prompt":"Fran\u00e7ais","answer":"Deutsch","colour":"blue",
+{"title":"Bo\u00eete \u00e0 mots","offline":true,"units":[{"id":"demo","file":"","language":"Allemand",
+"title":"Exemple","subtitle":"Quelques phrases seulement","prompt":"fran\u00e7ais","answer":"allemand","colour":"blue",
 "rows":[["Ich heisse Lea.","Je m\u2019appelle Lea.","",""],["Er heisst Jonas.","Il s\u2019appelle Jonas.","",""],
 ["Ich wohne in Bern.","J\u2019habite \u00e0 Berne.","",""],["Ich spreche Deutsch.","Je parle allemand.","",""],
 ["Ich habe eine Katze.","J\u2019ai un chat.","",""],["Meine Lieblingsfarbe ist Gr\u00fcn.","Ma couleur pr\u00e9f\u00e9r\u00e9e est le vert.","",""]]}]}
@@ -210,35 +210,35 @@
 <!-- ============ HOME ============ -->
 <main id="home">
   <div class="crown">
-    <h1 class="display">Wortkiste<em>Deutsch und Franz&ouml;sisch &uuml;ben</em></h1>
+    <h1 class="display"><span id="appTitle">Bo&icirc;te &agrave; mots</span><em id="appTagline">Pour r&eacute;viser tes mots</em></h1>
     <div class="starcount"><span>&#9733;</span><span id="totalStars">0</span></div>
   </div>
   <p class="note" id="offlineNote" hidden></p>
   <div class="chips" id="chips"></div>
   <ul class="units" id="units"></ul>
-  <footer id="homeFoot">Tippe auf eine Lektion.</footer>
+  <footer id="homeFoot" data-t="pickUnit"></footer>
 </main>
 
 <!-- ============ UNIT ============ -->
 <main id="unit" hidden>
   <div class="topbar">
-    <button class="back press" id="back" aria-label="Zur&uuml;ck zur Wortkiste">&#8592;</button>
+    <button class="back press" id="back" data-aria="back">&#8592;</button>
     <h2 class="display" id="unitTitle">&nbsp;<span id="unitSub"></span></h2>
   </div>
 
   <div class="modes" role="tablist">
-    <button class="mode press" role="tab" id="mCards" aria-selected="true">Karten</button>
-    <button class="mode press" role="tab" id="mWrite" aria-selected="false">Schreiben</button>
+    <button class="mode press" role="tab" id="mCards" aria-selected="true" data-t="cards"></button>
+    <button class="mode press" role="tab" id="mWrite" aria-selected="false" data-t="write"></button>
   </div>
 
   <!-- cards -->
   <section id="secCards">
     <div class="tools">
-      <button class="tool press" id="swap">Franz&ouml;sisch zuerst</button>
-      <button class="tool press" id="closeAll">Alle zu</button>
+      <button class="tool press" id="swap"></button>
+      <button class="tool press" id="closeAll" data-t="closeAll"></button>
     </div>
     <div class="deck" id="deck"></div>
-    <footer>Tippe auf eine Karte, um die andere Sprache zu sehen.</footer>
+    <footer data-t="cardsHelp"></footer>
   </section>
 
   <!-- typing -->
@@ -249,10 +249,10 @@
       <span class="streak" id="streak" hidden>&#128293; 0</span>
     </div>
     <div class="tools">
-      <button class="tool press" id="reset">Von vorne</button>
+      <button class="tool press" id="reset" data-t="restart"></button>
     </div>
     <div class="qs" id="qs"></div>
-    <footer>Gross- und Kleinschreibung, Punkt und Komma sind egal. &ouml; darf auch oe sein.</footer>
+    <footer data-t="writeHelp"></footer>
   </section>
 </main>
 
@@ -260,17 +260,49 @@
 <div class="party" id="party" hidden>
   <div class="box">
     <div class="burst">&#11088;&#127881;&#11088;</div>
-    <h3 class="display" id="partyTitle">Geschafft!</h3>
+    <h3 class="display" id="partyTitle" data-t="bravo"></h3>
     <p id="partyText"></p>
     <div class="row2">
-      <button class="press" id="partyAgain">Nochmal</button>
-      <button class="press go" id="partyHome">Zur Wortkiste</button>
+      <button class="press" id="partyAgain" data-t="again"></button>
+      <button class="press go" id="partyHome" data-t="backToList"></button>
     </div>
   </div>
 </div>
 
 <script>
 "use strict";
+
+/* ---------------- Textes de l'interface ----------------
+   Tout ce que l'application affiche est ici. Pour changer un mot,
+   changez-le ici et nulle part ailleurs. */
+const T = {
+  pickUnit:   "Touche une le\u00e7on.",
+  cards:      "Cartes",
+  write:      "\u00c9crire",
+  back:       "Retour",
+  closeAll:   "Tout fermer",
+  closeAllN:  n => "Tout fermer (" + n + ")",
+  firstIn:    l => "D\u2019abord en " + l,
+  restart:    "Recommencer",
+  cardsHelp:  "Touche une carte pour voir l\u2019autre langue.",
+  writeHelp:  "Les majuscules et la ponctuation ne comptent pas. Tu peux \u00e9crire \u00f6 comme oe.",
+  typeIn:     l => "en " + l + " \u2026",
+  answerIn:   l => "R\u00e9ponse en " + l,
+  showMe:     "Montre-moi",
+  tryAgain:   "R\u00e9essayer",
+  bravo:      "Bravo\u202f!",
+  allRight:   n => "Tu as \u00e9crit les " + n + " phrases correctement.",
+  again:      "Encore",
+  backToList: "Retour aux le\u00e7ons",
+  offline:    "Les le\u00e7ons du dossier content/ n\u2019ont pas pu \u00eatre charg\u00e9es \u2014 " +
+              "tu ne vois ici qu\u2019un court exemple. Sur une vraie adresse " +
+              "(GitHub Pages par exemple), tout se charge normalement."
+};
+function applyText(){
+  document.querySelectorAll("[data-t]").forEach(el => { el.textContent = T[el.dataset.t]; });
+  document.querySelectorAll("[data-aria]").forEach(el => { el.setAttribute("aria-label", T[el.dataset.aria]); });
+}
+applyText();
 
 /* ---------------- storage (falls back to memory if blocked) ---------------- */
 const mem = {};
@@ -311,11 +343,12 @@ function parseTSV(text){
     .filter(r => r.a && r.b);
 }
 
-let UNITS = [], OFFLINE = false;
+let UNITS = [], OFFLINE = false, META = {};
 
 async function loadContent(){
   try {
     const idx = await (await fetch("content/index.json", {cache:"no-cache"})).json();
+    META = {title: idx.title, tagline: idx.tagline};
     const units = await Promise.all(idx.units.map(async u => {
       const txt = await (await fetch("content/" + u.file, {cache:"no-cache"})).text();
       return Object.assign({}, u, {rows: parseTSV(txt)});
@@ -394,9 +427,7 @@ function renderHome(){
   const note = document.getElementById("offlineNote");
   note.hidden = !OFFLINE;
   if (OFFLINE){
-    note.textContent = "Die Lektionen aus dem Ordner content/ konnten nicht geladen werden \u2014 " +
-      "hier siehst du nur ein kurzes Beispiel. Auf einer richtigen Adresse (z.\u00a0B. GitHub Pages) " +
-      "l\u00e4dt alles normal.";
+    note.textContent = T.offline;
   }
 }
 
@@ -456,11 +487,11 @@ function paintCards(){
     c.querySelector(".face.a .tag").textContent = reversed ? cur.prompt : cur.answer;
     c.querySelector(".face.b .tag").textContent = reversed ? cur.answer : cur.prompt;
   });
-  swapBtn.textContent = reversed ? (cur.answer + " zuerst") : (cur.prompt + " zuerst");
+  swapBtn.textContent = T.firstIn(reversed ? cur.answer : cur.prompt);
 }
 function countOpen(){
   const n = deck.querySelectorAll(".card.flipped").length;
-  document.getElementById("closeAll").textContent = n ? "Alle zu (" + n + ")" : "Alle zu";
+  document.getElementById("closeAll").textContent = n ? T.closeAllN(n) : T.closeAll;
 }
 swapBtn.addEventListener("click", () => {
   reversed = !reversed;
@@ -492,14 +523,15 @@ function buildWrite(){
           'spellcheck="false" enterkeyhint="next">' +
         '<span class="mark" aria-hidden="true"></span>' +
       '</div>' +
-      '<button class="peek">Zeig mir</button>' +
+      '<button class="peek"></button>' +
       '<p class="said"></p>';
     box.querySelector(".ask").textContent = r.b;
     box.querySelector(".said").textContent = r.a;
     const input = box.querySelector("input");
     const mark = box.querySelector(".mark");
-    input.placeholder = "auf " + cur.answer + " \u2026";
-    input.setAttribute("aria-label", "Antwort auf " + cur.answer);
+    input.placeholder = T.typeIn(cur.answer);
+    box.querySelector(".peek").textContent = T.showMe;
+    input.setAttribute("aria-label", T.answerIn(cur.answer));
 
     if (solved.has(r.a)){ box.classList.add("right"); input.value = r.a; mark.textContent = "\u2713"; }
 
@@ -529,7 +561,7 @@ function buildWrite(){
     input.addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); check(false); } });
     box.querySelector(".peek").addEventListener("click", () => {
       box.classList.add("shown");
-      box.querySelector(".peek").textContent = "Nochmal versuchen";
+      box.querySelector(".peek").textContent = T.tryAgain;
       streak = 0; bumpStreak();
       input.focus();
     });
@@ -561,8 +593,7 @@ document.getElementById("reset").addEventListener("click", () => {
 /* celebration */
 const party = document.getElementById("party");
 function celebrate(n){
-  document.getElementById("partyText").textContent =
-    "Alle " + n + " S\u00e4tze richtig geschrieben.";
+  document.getElementById("partyText").textContent = T.allRight(n);
   party.hidden = false;
 }
 document.getElementById("partyAgain").addEventListener("click", () => {
@@ -576,7 +607,12 @@ document.getElementById("partyHome").addEventListener("click", () => {
 });
 
 /* ---------------- go ---------------- */
-loadContent().then(u => { UNITS = u; renderHome(); });
+loadContent().then(u => {
+  UNITS = u;
+  if (META.title)   document.getElementById("appTitle").textContent = META.title;
+  if (META.tagline) document.getElementById("appTagline").textContent = META.tagline;
+  renderHome();
+});
 </script>
 </body>
 </html>
