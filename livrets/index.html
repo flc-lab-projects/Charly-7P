@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Livrets">
+<meta name="theme-color" content="#DBE9F6">
+<link rel="apple-touch-icon" href="icon.png">
+<title>Les livrets</title>
+<style>
+  :root{
+    --paper:#DBE9F6;
+    --ink:#20263C;
+    --muted:#66708C;
+    --white:#FFFDFA;
+    --star:#FFC531;
+    --good:#17A34A;
+    --goodbg:#E4F7EA;
+    --bad:#E5484D;
+    --accent:#C92E76;
+    --line:2.5px solid var(--ink);
+  }
+  .c0{--accent:#3457D5;} .c1{--accent:#12864F;} .c2{--accent:#6D3FD1;}
+  .c3{--accent:#D2660F;} .c4{--accent:#C92E76;} .c5{--accent:#0E7C88;}
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;background:var(--paper);height:100%;}
+  body{
+    font-family:"Avenir Next","Avenir",system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    padding:max(12px,env(safe-area-inset-top)) 14px calc(18px + env(safe-area-inset-bottom));
+    -webkit-text-size-adjust:100%;
+    -webkit-user-select:none;user-select:none;
+  }
+  .display{font-family:"Futura","Avenir Next Demi Bold","Avenir Next",system-ui,sans-serif;}
+  button{font:inherit;color:inherit;cursor:pointer;}
+  [hidden]{display:none !important;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+  .press{transition:transform .06s ease, box-shadow .06s ease;}
+  .press:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink) !important;}
+
+  /* ---------- home ---------- */
+  .crown{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:8px 2px 18px;}
+  .crown h1{font-size:31px;font-weight:700;letter-spacing:-.02em;margin:0;line-height:1;}
+  .crown h1 em{font-style:normal;display:block;font-size:12.5px;font-weight:500;color:var(--muted);
+    margin-top:6px;font-family:"Avenir Next",sans-serif;}
+  .lead{margin:0 2px 12px;font-size:14.5px;color:var(--muted);}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 16px;}
+  .tile{
+    aspect-ratio:1;border:var(--line);border-radius:18px;background:var(--white);
+    box-shadow:4px 4px 0 var(--ink);font-size:24px;font-weight:700;
+    display:grid;place-items:center;
+  }
+  .tile[aria-pressed="true"]{background:var(--accent);color:#fff;box-shadow:4px 4px 0 var(--ink);}
+
+  .row{display:flex;gap:10px;}
+  .btn{
+    flex:1;border:var(--line);border-radius:16px;background:var(--white);padding:14px;
+    font-size:16px;font-weight:700;box-shadow:4px 4px 0 var(--ink);
+  }
+  .btn.go{background:var(--star);}
+  .btn[disabled]{opacity:.4;box-shadow:2px 2px 0 var(--ink);}
+  .btn.small{flex:0 0 auto;padding:12px 16px;font-size:14.5px;}
+
+  /* ---------- play ---------- */
+  .topbar{display:flex;align-items:center;gap:9px;margin:4px 0 14px;}
+  .icon{
+    flex:none;width:42px;height:42px;border:var(--line);border-radius:13px;background:var(--white);
+    box-shadow:3px 3px 0 var(--ink);display:grid;place-items:center;font-size:18px;
+  }
+  .track{flex:1;height:12px;border:var(--line);border-radius:999px;background:var(--white);overflow:hidden;}
+  .fill{display:block;height:100%;width:0;background:var(--good);transition:width .3s ease;}
+  .pill{border:var(--line);border-radius:999px;background:var(--star);padding:4px 11px;
+    font-size:13px;font-weight:700;white-space:nowrap;}
+
+  .stage{
+    background:var(--white);border:var(--line);border-radius:24px;box-shadow:6px 6px 0 var(--accent);
+    padding:22px 18px;text-align:center;margin:0 0 14px;
+  }
+  .stage.right{background:var(--goodbg);box-shadow:6px 6px 0 var(--good);}
+  .stage.wrong{box-shadow:6px 6px 0 var(--bad);animation:shake .32s;}
+  @keyframes shake{
+    0%,100%{transform:translateX(0);} 20%{transform:translateX(-7px);}
+    50%{transform:translateX(7px);} 80%{transform:translateX(-4px);}
+  }
+  .sum{font-size:40px;font-weight:700;letter-spacing:.01em;margin:0;line-height:1.1;}
+  .slot{
+    margin:14px auto 0;min-height:56px;width:150px;border:var(--line);border-radius:16px;
+    background:var(--paper);display:grid;place-items:center;font-size:30px;font-weight:700;
+    font-family:"Futura","Avenir Next",sans-serif;
+  }
+  .stage.right .slot{background:var(--good);color:#fff;border-color:var(--good);}
+  .verdict{margin:13px 0 0;font-size:16px;font-weight:700;min-height:22px;}
+  .verdict.ok{color:var(--good);}
+  .verdict.no{color:var(--bad);}
+
+  .pad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .key{
+    border:var(--line);border-radius:16px;background:var(--white);box-shadow:4px 4px 0 var(--ink);
+    padding:14px 0;font-size:25px;font-weight:700;font-family:"Futura","Avenir Next",sans-serif;
+  }
+  .key.act{background:var(--accent);color:#fff;font-size:20px;font-family:"Avenir Next",sans-serif;}
+  .key.del{background:var(--paper);font-size:20px;}
+
+  /* ---------- end ---------- */
+  .party{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:24px;
+    background:rgba(32,38,60,.45);}
+  .party .box{background:var(--white);border:3px solid var(--ink);border-radius:26px;
+    box-shadow:8px 8px 0 var(--star);padding:24px 22px 20px;text-align:center;max-width:330px;
+    animation:pop .35s cubic-bezier(.3,1.5,.5,1);}
+  @keyframes pop{from{transform:scale(.8) rotate(-3deg);opacity:0;}to{transform:none;opacity:1;}}
+  .party .burst{font-size:38px;letter-spacing:4px;}
+  .party h3{font-size:25px;margin:8px 0 6px;font-weight:700;}
+  .party p{margin:0 0 18px;font-size:15px;color:var(--muted);line-height:1.45;}
+
+  @media (prefers-reduced-motion:reduce){
+    .fill{transition:none;} .stage.wrong{animation:none;} .party .box{animation:none;} .press{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HOME ================= -->
+<main id="home">
+  <div class="crown">
+    <h1 class="display">Les livrets<em>Choisis tes livrets, puis c&rsquo;est parti</em></h1>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="row" style="margin-bottom:10px;">
+    <button class="btn press small" id="all">Tout choisir</button>
+    <button class="btn press small" id="none">Tout enlever</button>
+  </div>
+  <div class="row">
+    <button class="btn go press" id="start" disabled>Commencer</button>
+  </div>
+  <p class="lead" style="margin-top:14px;" id="hint">
+    Chaque calcul revient tant qu&rsquo;il n&rsquo;est pas juste. Quand ils sont tous justes, c&rsquo;est fini.
+  </p>
+</main>
+
+<!-- ================= PLAY ================= -->
+<main id="play" hidden>
+  <div class="topbar">
+    <button class="icon press" id="quit" aria-label="Changer de livrets">&#8592;</button>
+    <span class="track"><i class="fill" id="fill"></i></span>
+    <span class="pill" id="left">0</span>
+    <button class="icon press" id="again" aria-label="Recommencer">&#8635;</button>
+  </div>
+
+  <div class="stage" id="stage">
+    <p class="sum display" id="sum">&nbsp;</p>
+    <div class="slot" id="slot">&nbsp;</div>
+    <p class="verdict" id="verdict">&nbsp;</p>
+  </div>
+
+  <div class="pad" id="pad"></div>
+</main>
+
+<!-- ================= END ================= -->
+<div class="party" id="party" hidden>
+  <div class="box">
+    <div class="burst">&#11088;&#127881;&#11088;</div>
+    <h3 class="display">Bravo&#8239;!</h3>
+    <p id="partyText"></p>
+    <div class="row">
+      <button class="btn press" id="pAgain">Encore</button>
+      <button class="btn go press" id="pHome">Changer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ---------- Tous les textes affichés sont ici ---------- */
+const T = {
+  wrong:    (a,b,r) => "Presque\u202f! " + a + " \u00d7 " + b + " = " + r,
+  right:    ["Juste\u202f!", "Bravo\u202f!", "Parfait\u202f!", "Exact\u202f!", "Tr\u00e8s bien\u202f!"],
+  leftN:    n => n + (n > 1 ? " calculs" : " calcul"),
+  done:     (n, w) => w === 0
+              ? "Tous les " + n + " calculs justes du premier coup."
+              : "Tous les calculs sont justes. Il a fallu " + w +
+                (w > 1 ? " essais de plus." : " essai de plus."),
+  chosen:   n => "Commencer (" + n + ")"
+};
+
+/* ---------- petite mémoire (livrets choisis) ---------- */
+const mem = {};
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch(e){ return mem[k] ?? null; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch(e){ mem[k] = v; } }
+};
+
+/* ---------- home ---------- */
+const grid = document.getElementById("grid");
+const startBtn = document.getElementById("start");
+let chosen = new Set();
+
+try { JSON.parse(store.get("livrets:choix") || "[]").forEach(n => chosen.add(n)); } catch(e){}
+
+for (let n = 1; n <= 12; n++){
+  const b = document.createElement("button");
+  b.className = "tile press display c" + ((n - 1) % 6);
+  b.textContent = n;
+  b.setAttribute("aria-pressed", String(chosen.has(n)));
+  b.setAttribute("aria-label", "Livret de " + n);
+  b.addEventListener("click", () => {
+    chosen.has(n) ? chosen.delete(n) : chosen.add(n);
+    b.setAttribute("aria-pressed", String(chosen.has(n)));
+    refreshStart();
+  });
+  grid.appendChild(b);
+}
+function refreshStart(){
+  const n = chosen.size * 12;
+  startBtn.disabled = chosen.size === 0;
+  startBtn.textContent = chosen.size ? T.chosen(n) : "Commencer";
+  store.set("livrets:choix", JSON.stringify([...chosen]));
+}
+document.getElementById("all").addEventListener("click", () => {
+  for (let n = 1; n <= 12; n++) chosen.add(n);
+  grid.querySelectorAll(".tile").forEach(t => t.setAttribute("aria-pressed","true"));
+  refreshStart();
+});
+document.getElementById("none").addEventListener("click", () => {
+  chosen.clear();
+  grid.querySelectorAll(".tile").forEach(t => t.setAttribute("aria-pressed","false"));
+  refreshStart();
+});
+refreshStart();
+
+/* ---------- game ---------- */
+const homeEl = document.getElementById("home"), playEl = document.getElementById("play");
+const sumEl = document.getElementById("sum"), slotEl = document.getElementById("slot");
+const verdictEl = document.getElementById("verdict"), stageEl = document.getElementById("stage");
+const fillEl = document.getElementById("fill"), leftEl = document.getElementById("left");
+
+let pile = [], total = 0, extras = 0, typed = "", locked = false;
+
+function shuffle(a){
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function newGame(){
+  pile = [];
+  [...chosen].sort((x,y)=>x-y).forEach(a => {
+    for (let b = 1; b <= 12; b++) pile.push({a, b});
+  });
+  shuffle(pile);
+  total = pile.length; extras = 0; typed = ""; locked = false;
+  document.getElementById("party").hidden = true;
+  homeEl.hidden = true; playEl.hidden = false;
+  nextCard();
+  window.scrollTo(0,0);
+}
+document.getElementById("start").addEventListener("click", newGame);
+document.getElementById("again").addEventListener("click", newGame);
+document.getElementById("pAgain").addEventListener("click", newGame);
+document.getElementById("quit").addEventListener("click", goHome);
+document.getElementById("pHome").addEventListener("click", goHome);
+function goHome(){
+  document.getElementById("party").hidden = true;
+  playEl.hidden = true; homeEl.hidden = false;
+  window.scrollTo(0,0);
+}
+
+function nextCard(){
+  typed = "";
+  stageEl.className = "stage";
+  verdictEl.className = "verdict";
+  verdictEl.innerHTML = "&nbsp;";
+  const left = pile.length;
+  leftEl.textContent = T.leftN(left);
+  fillEl.style.width = (total ? (total - left) / total * 100 : 0) + "%";
+  if (!left){ finish(); return; }
+  const q = pile[0];
+  stageEl.classList.add("c" + ((q.a - 1) % 6));
+  sumEl.textContent = q.a + " \u00d7 " + q.b;
+  drawSlot();
+}
+function drawSlot(){ slotEl.innerHTML = typed === "" ? "&nbsp;" : typed; }
+
+function submit(){
+  if (locked || typed === "" || !pile.length) return;
+  const q = pile[0], answer = q.a * q.b;
+  locked = true;
+  if (Number(typed) === answer){
+    pile.shift();
+    stageEl.classList.add("right");
+    verdictEl.className = "verdict ok";
+    verdictEl.textContent = T.right[Math.floor(Math.random() * T.right.length)];
+    setTimeout(() => { locked = false; nextCard(); }, 620);
+  } else {
+    extras++;
+    stageEl.classList.add("wrong");
+    verdictEl.className = "verdict no";
+    verdictEl.textContent = T.wrong(q.a, q.b, answer);
+    // le calcul retourne dans la pile, un peu plus loin
+    pile.shift();
+    const at = Math.min(pile.length, 2 + Math.floor(Math.random() * 4));
+    pile.splice(at, 0, q);
+    setTimeout(() => { locked = false; nextCard(); }, 1700);
+  }
+}
+
+function finish(){
+  document.getElementById("partyText").textContent = T.done(total, extras);
+  document.getElementById("party").hidden = false;
+}
+
+/* ---------- keypad ---------- */
+const pad = document.getElementById("pad");
+const keys = ["1","2","3","4","5","6","7","8","9","del","0","ok"];
+keys.forEach(k => {
+  const b = document.createElement("button");
+  if (k === "del"){ b.className = "key del press"; b.innerHTML = "&#9003;"; b.setAttribute("aria-label","Effacer"); }
+  else if (k === "ok"){ b.className = "key act press"; b.textContent = "Valider"; }
+  else { b.className = "key press"; b.textContent = k; }
+  b.addEventListener("click", () => {
+    if (locked) return;
+    if (k === "del") typed = typed.slice(0, -1);
+    else if (k === "ok") return submit();
+    else if (typed.length < 3) typed += k;
+    drawSlot();
+  });
+  pad.appendChild(b);
+});
+document.addEventListener("keydown", e => {
+  if (playEl.hidden || locked) return;
+  if (/^[0-9]$/.test(e.key)){ if (typed.length < 3) typed += e.key; drawSlot(); }
+  else if (e.key === "Backspace"){ typed = typed.slice(0,-1); drawSlot(); }
+  else if (e.key === "Enter"){ submit(); }
+});
+</script>
+</body>
+</html>
