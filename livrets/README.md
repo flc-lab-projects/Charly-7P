@@ -16,8 +16,10 @@ which means every calculation has been answered correctly at least once. No cloc
 
 ## Test
 
-Mirrors the school test: 30 calculations drawn at random from all twelve livrets,
-3 minutes on the clock. No right/wrong feedback during the test — the review comes
+Mirrors the school test: 30 calculations drawn at random, 3 minutes on the clock.
+The 1, 10 and 11 livrets are left out as already secure — a calculation is excluded
+if *either* of its numbers is one of those, so 7 × 10 doesn't appear either. The pool
+is therefore 2–9 and 12, i.e. 81 possible calculations. No right/wrong feedback during the test — the review comes
 at the end, listing every missed calculation with its answer. "Revoir ces calculs"
 drops exactly those into the practice pile.
 
@@ -26,7 +28,11 @@ drops exactly those into the practice pile.
 - Leaving mid-test needs two taps on ←, so the test isn't lost by a mis-tap.
 - The best score is kept on the device and shown on the Test tab.
 
-To change the format, `TEST_N` and `TEST_SEC` are near the top of the script.
+To change the format, `TEST_N`, `TEST_SEC` and `TEST_SKIP` are near the top of the
+script. Emptying `TEST_SKIP` puts every livret back in. The sentence on the Test tab
+is generated from that list, so it always describes what will actually come up.
+
+Note that Entraînement still offers all twelve livrets — only the test pool is narrowed.
 
 ## Publishing
 

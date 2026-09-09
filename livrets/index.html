@@ -152,7 +152,7 @@
   <section id="secTest" hidden>
     <div class="panel">
       <p class="big display">30 calculs<br>3 minutes</p>
-      <p class="cap">Des calculs tir&eacute;s au hasard dans tous les livrets, de 1 &agrave; 12.
+      <p class="cap"><span id="testTables"></span>
         Comme &agrave; l&rsquo;&eacute;cole&nbsp;: tu ne sais pas tout de suite si c&rsquo;est juste,
         les corrections arrivent &agrave; la fin.</p>
     </div>
@@ -252,10 +252,28 @@ const T = {
                (n > 1 ? "les " + n + " derniers calculs." : "le dernier calcul.") : "",
   record:    "Nouveau record\u202f!",
   best:      s => "Meilleur r\u00e9sultat\u202f: " + s + "/30",
-  reviewing: "Les calculs rat\u00e9s au test"
+  reviewing: "Les calculs rat\u00e9s au test",
+  fromTables: list => "Des calculs tir\u00e9s au hasard dans les livrets de " + list + ". "
 };
 
+/* "2, 3, 4, 5, 6, 7, 8, 9, 12" -> "2 \u00e0 9 et 12" */
+function listTables(ns){
+  const runs = [];
+  ns.forEach(n => {
+    const last = runs[runs.length-1];
+    if (last && n === last[last.length-1] + 1) last.push(n); else runs.push([n]);
+  });
+  const parts = runs.map(r => r.length >= 3 ? r[0] + " \u00e0 " + r[r.length-1] : r.join(", "));
+  return parts.length > 1
+    ? parts.slice(0,-1).join(", ") + " et " + parts[parts.length-1]
+    : parts[0];
+}
+
 const TEST_N = 30, TEST_SEC = 180;
+/* Livrets écartés du test parce qu’ils sont déjà acquis.
+   Un calcul est écarté si l’un ou l’autre de ses deux nombres est dans cette liste. */
+const TEST_SKIP = [1, 10, 11];
+const TEST_TABLES = Array.from({length:12}, (_,i) => i+1).filter(n => !TEST_SKIP.includes(n));
 
 /* ---------- petite mémoire ---------- */
 const mem = {};
@@ -416,7 +434,7 @@ let tQs = [], tIdx = 0, tTyped = "", tWrong = [], tEnd = 0, tTimer = null, tRunn
 
 function startTest(){
   const all = [];
-  for (let a = 1; a <= 12; a++) for (let b = 1; b <= 12; b++) all.push({a, b});
+  TEST_TABLES.forEach(a => TEST_TABLES.forEach(b => all.push({a, b})));
   tQs = shuffle(all).slice(0, TEST_N);
   tIdx = 0; tTyped = ""; tWrong = []; tRunning = true;
   tEnd = Date.now() + TEST_SEC * 1000;
@@ -526,6 +544,7 @@ document.addEventListener("keydown", e => {
   }
 });
 
+$("testTables").textContent = T.fromTables(listTables(TEST_TABLES));
 showBest();
 </script>
 </body>
